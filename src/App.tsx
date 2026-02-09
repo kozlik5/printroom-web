@@ -8,6 +8,8 @@ import HomePage from './pages/HomePage';
 import SluzbyPage from './pages/SluzbyPage';
 import PortfolioPage from './pages/PortfolioPage';
 import KontaktPage from './pages/KontaktPage';
+import GdprPage from './pages/GdprPage';
+import VopPage from './pages/VopPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -31,6 +33,8 @@ export default function App() {
                   <Route path="/sluzby" element={<SluzbyPage />} />
                   <Route path="/portfolio" element={<PortfolioPage />} />
                   <Route path="/kontakt" element={<KontaktPage />} />
+                  <Route path="/gdpr" element={<GdprPage />} />
+                  <Route path="/vop" element={<VopPage />} />
                 </Routes>
               </main>
               <Footer />

@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Send, CheckCircle } from 'lucide-react';
 
 interface FormData {
@@ -105,7 +106,8 @@ export default function ContactForm() {
             className="mt-1 accent-primary"
           />
           <span>
-            Súhlasím so spracovaním osobných údajov na účely spracovania dopytu. *
+            Súhlasím so spracovaním osobných údajov podľa{' '}
+            <Link to="/gdpr" className="text-primary underline hover:text-primary/80">Zásad ochrany osobných údajov</Link>. *
           </span>
         </label>
         {errors.gdpr && <p className={errorCls}>{errors.gdpr.message}</p>}

@@ -24,6 +24,8 @@ export default function Footer() {
             <Link to="/sluzby" className="hover:text-white transition-colors">Služby</Link>
             <Link to="/portfolio" className="hover:text-white transition-colors">Portfólio</Link>
             <Link to="/kontakt" className="hover:text-white transition-colors">Kontakt</Link>
+            <Link to="/vop" className="hover:text-white transition-colors">VOP</Link>
+            <Link to="/gdpr" className="hover:text-white transition-colors">GDPR</Link>
           </nav>
         </div>
 

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function CookieConsent() {
   const [show, setShow] = useState(false);
@@ -25,7 +26,8 @@ export default function CookieConsent() {
     <div className="fixed bottom-0 left-0 right-0 z-50 bg-slate-900 text-white p-4 md:p-6 shadow-2xl">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center gap-4">
         <p className="text-sm text-slate-300 flex-1">
-          Táto stránka používa cookies na zlepšenie používateľského zážitku. Pokračovaním súhlasíte s ich používaním.
+          Táto stránka používa cookies na zlepšenie používateľského zážitku. Viac informácií nájdete v{' '}
+          <Link to="/gdpr" className="underline text-white hover:text-accent transition-colors">Zásadách ochrany osobných údajov</Link>.
         </p>
         <div className="flex gap-3">
           <button

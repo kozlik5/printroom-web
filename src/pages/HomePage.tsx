@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import {
   Printer, Shirt, Maximize, FileText, Car,
-  ArrowRight, CheckCircle2, Mail, Phone, MapPin, ChevronRight, Star, Gift, Box,
+  ArrowRight, CheckCircle2, Mail, Phone, MapPin, ChevronRight, Star, Gift, Box, Instagram, Facebook,
 } from 'lucide-react';
 import {
   Chart as ChartJS, CategoryScale, LinearScale, BarElement,
@@ -129,7 +129,7 @@ export default function HomePage() {
             <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[1] tracking-tighter mb-8 text-slate-900">
               MODERNÁ TLAČ <br />
               <span className="text-[#005088]">PRE VÁŠ</span> <br />
-              <span className="bg-gradient-to-r from-[#f97316] via-[#f59e0b] to-[#ef4444] bg-clip-text text-transparent italic">BIZNIS.</span>
+              <span className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent italic">BIZNIS.</span>
             </h1>
             <p className="text-slate-500 text-lg md:text-xl max-w-xl mb-12 font-light leading-relaxed italic border-l-4 border-gradient-to-b border-[#005088] pl-6">
               Váš partner v Petržalke od roku 2013. Prinášame komplexné riešenia od 1 kusu po tisícové série.
@@ -179,25 +179,29 @@ export default function HomePage() {
             {services.map((service, idx) => (
               <div
                 key={idx}
-                className={`group relative overflow-hidden bg-white/80 backdrop-blur-lg rounded-2xl border border-slate-100/80 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/10 hover:border-orange-200/50 flex flex-col justify-between p-10 cursor-pointer ${
+                className={`group relative overflow-hidden rounded-2xl transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/10 cursor-pointer ${
                   service.size === 'large' ? 'md:col-span-8 h-[450px]' : 'md:col-span-4 h-[450px]'
                 }`}
               >
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-700">
-                  <img src={service.img} alt={service.title} className="w-full h-full object-cover" />
-                </div>
-                {/* Hover gradient accent */}
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#005088] to-[#f97316] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                <div className="relative z-10 flex justify-between items-start">
-                  <div className="text-[#005088] group-hover:text-[#f97316] transition-colors duration-300 p-3 bg-blue-50 group-hover:bg-orange-50 rounded-xl">{service.icon}</div>
-                  <span className="text-[10px] font-black text-slate-200 group-hover:text-[#005088] transition-colors">0{idx + 1}</span>
-                </div>
-                <div className="relative z-10">
-                  <h3 className="text-3xl font-black uppercase mb-4 leading-tight group-hover:text-[#005088] transition-colors">{service.title}</h3>
-                  <p className="text-slate-500 text-sm font-light max-w-xs">{service.desc}</p>
-                </div>
-                <div className="relative z-10 flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-[#005088] translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
-                  Zistiť viac <ChevronRight size={14} className="text-[#f97316]" />
+                {/* Background photo */}
+                <img src={service.img} alt={service.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                {/* Dark overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10 group-hover:from-black/90 group-hover:via-black/50 transition-all duration-500"></div>
+                {/* Top accent line */}
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#005088] to-[#f97316] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-20"></div>
+                
+                <div className="relative z-10 h-full flex flex-col justify-between p-10">
+                  <div className="flex justify-between items-start">
+                    <div className="text-white/90 group-hover:text-[#f97316] transition-colors duration-300 p-3 bg-white/10 backdrop-blur-sm rounded-xl">{service.icon}</div>
+                    <span className="text-[10px] font-black text-white/30 group-hover:text-white/60 transition-colors">0{idx + 1}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-3xl font-black uppercase mb-4 leading-tight text-white group-hover:text-[#f97316] transition-colors">{service.title}</h3>
+                    <p className="text-white/70 text-sm font-light max-w-xs">{service.desc}</p>
+                    <div className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-white/80 mt-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
+                      Zistiť viac <ChevronRight size={14} className="text-[#f97316]" />
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -234,15 +238,10 @@ export default function HomePage() {
             </div>
             <div className="bg-gradient-to-br from-[#005088] to-[#003d68] aspect-square rounded-3xl overflow-hidden relative group shadow-2xl shadow-blue-900/20">
               <img
-                src="/images/services/hero.jpg"
-                alt="Potlačené tričká Simba"
+                src="/images/services/3d-sluzby.jpg"
+                alt="3D služby - hrnček s potlačou"
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 opacity-80 transition-all duration-1000"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-24 h-24 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#005088] shadow-2xl cursor-pointer hover:scale-110 transition group-hover:bg-gradient-to-r group-hover:from-[#f97316] group-hover:to-[#f59e0b] group-hover:text-white">
-                  <ArrowRight size={32} />
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -366,17 +365,21 @@ export default function HomePage() {
                     </div>
                     <span className="font-bold tracking-widest uppercase text-xs">+421 903 584 020</span>
                   </a>
-                  <div className="flex items-center gap-6 group cursor-pointer">
+                  <a href="https://maps.google.com/?q=Fialová+5/A,+851+07+Bratislava-Petržalka" target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group cursor-pointer">
                     <div className="w-12 h-12 bg-white/10 backdrop-blur-sm flex items-center justify-center text-[#f97316] group-hover:bg-gradient-to-r group-hover:from-[#f97316] group-hover:to-[#f59e0b] group-hover:text-white transition-all rounded-xl">
                       <MapPin size={20} />
                     </div>
                     <span className="font-bold tracking-widest uppercase text-xs text-blue-200">Fialová 5/A, Bratislava — Petržalka</span>
-                  </div>
+                  </a>
                 </div>
               </div>
-              <div className="mt-20 flex gap-6 opacity-40 hover:opacity-100 transition-opacity">
-                <a href="https://instagram.com/printroom.sk" target="_blank" rel="noopener noreferrer" className="font-black text-[10px] tracking-widest uppercase">Instagram</a>
-                <a href="https://facebook.com/people/Printroom/61564243379044" target="_blank" rel="noopener noreferrer" className="font-black text-[10px] tracking-widest uppercase">Facebook</a>
+              <div className="mt-20 flex gap-4">
+                <a href="https://instagram.com/printroom.sk" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/10 backdrop-blur-sm flex items-center justify-center rounded-xl hover:bg-[#f97316] transition-all duration-300">
+                  <Instagram size={20} />
+                </a>
+                <a href="https://facebook.com/people/Printroom/61564243379044" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/10 backdrop-blur-sm flex items-center justify-center rounded-xl hover:bg-[#f97316] transition-all duration-300">
+                  <Facebook size={20} />
+                </a>
               </div>
             </div>
             <div className="lg:w-1/2 bg-slate-50 p-12 md:p-20">

@@ -98,10 +98,10 @@ export default function SluzbyPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-slate-900/95" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">
-            Kompletné tlačiarenské služby
+            Kompletné tlačiarenské služby pre váš biznis
           </h1>
           <p className="mt-4 text-xl text-slate-300 italic max-w-2xl mx-auto">
-            Všetko pod jednou strechou. Od návrhu po hotový produkt.
+            Všetko pod jednou strechou — od návrhu po hotový produkt. Potlač textilu, reklamné predmety, 3D tlač, polygrafia, veľkoformát aj polepy v Bratislave.
           </p>
         </div>
       </section>

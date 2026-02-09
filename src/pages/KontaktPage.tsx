@@ -10,10 +10,10 @@ export default function KontaktPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-slate-900/95" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">
-            Kontakt
+            Kontaktujte nás
           </h1>
           <p className="mt-4 text-xl text-slate-300 italic max-w-2xl mx-auto">
-            Ozvite sa nám a do 24 hodín sa ozveme s ponukou.
+            Potrebujete cenovú ponuku alebo konzultáciu? Napíšte nám — ozveme sa do 24 hodín. Sídlime v Bratislave-Petržalke a obsluhujeme firmy z celého západného Slovenska.
           </p>
         </div>
       </section>

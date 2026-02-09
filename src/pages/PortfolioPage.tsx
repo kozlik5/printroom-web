@@ -31,10 +31,10 @@ export default function PortfolioPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-slate-900/95" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">
-            Naše realizácie
+            Naše realizácie a portfólio
           </h1>
           <p className="mt-4 text-xl text-slate-300 italic max-w-2xl mx-auto">
-            Pozrite si práce, ktoré sme vytvorili pre našich klientov.
+            Desiatky spokojných klientov z Bratislavy, Nitry a celého západného Slovenska. Pozrite si ukážky našej práce — od potlačených tričiek cez reklamné predmety až po 3D prototypy.
           </p>
         </div>
       </section>
