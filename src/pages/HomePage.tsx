@@ -35,8 +35,8 @@ const chartData = {
 };
 
 const testimonials = [
-  { name: 'Martin K.', role: 'Marketing Manager', text: 'Spolupráca s Printroom bola bezproblémová. Tričká pre celý tím do 3 dní, perfektná kvalita.', rating: 5 },
-  { name: 'Jana S.', role: 'Event Coordinator', text: 'Bannery na konferenciu zvládli za 24 hodín. Farby presné, materiál odolný. Odporúčam.', rating: 5 },
+  { name: 'Martin K.', role: 'Marketingový manažér', text: 'Spolupráca s Printroom bola bezproblémová. Tričká pre celý tím do 3 dní, perfektná kvalita.', rating: 5 },
+  { name: 'Jana S.', role: 'Koordinátorka eventov', text: 'Bannery na konferenciu zvládli za 24 hodín. Farby presné, materiál odolný. Odporúčam.', rating: 5 },
   { name: 'Peter D.', role: 'Majiteľ e-shopu', text: 'Vizitky a katalógy vyzerajú prémiovo. Konečne dodávateľ, na ktorého sa môžeme spoľahnúť.', rating: 5 },
 ];
 
@@ -91,7 +91,7 @@ function HomeContactForm() {
     const form = e.currentTarget;
     const formData = new FormData(form);
     formData.append('access_key', 'ae057aa6-cd19-422e-90b2-f9895d6ed069');
-    formData.append('subject', 'Nový dopyt z printroom-web.pages.dev');
+    formData.append('subject', 'Nový dopyt z webu printroom.sk');
     formData.append('from_name', 'Printroom Web');
     try {
       const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
@@ -118,19 +118,19 @@ function HomeContactForm() {
       <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
       <div className="space-y-3">
         <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">Vaše Meno</label>
-        <input type="text" name="name" required className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="Jozef Mrkvička" />
+        <input type="text" name="Meno" required className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="Jozef Mrkvička" />
       </div>
       <div className="space-y-3">
         <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">Email</label>
-        <input type="email" name="email" required className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="vas@email.sk" />
+        <input type="email" name="Email" required className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="vas@email.sk" />
       </div>
       <div className="space-y-3">
         <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">Telefón</label>
-        <input type="tel" name="phone" className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="+421 ..." />
+        <input type="tel" name="Telefón" className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="+421 ..." />
       </div>
       <div className="space-y-3">
         <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">Vaša Požiadavka</label>
-        <textarea name="message" rows={4} required className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="Povedzte nám o vašich plánoch..."></textarea>
+        <textarea name="Správa" rows={4} required className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="Povedzte nám o vašich plánoch..."></textarea>
       </div>
       <label className="flex items-start gap-3 cursor-pointer">
         <input type="checkbox" required className="mt-1 accent-[#f97316]" />
@@ -495,7 +495,7 @@ export default function HomePage() {
           <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-[#005088]">
             Líder v kvalite
             <div className="h-4 w-px bg-slate-300"></div>
-            Made in Slovakia
+            Vyrobené na Slovensku
           </div>
         </div>
       </footer>

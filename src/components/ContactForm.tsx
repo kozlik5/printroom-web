@@ -26,13 +26,15 @@ export default function ContactForm() {
     setError(false);
     const formData = new FormData();
     formData.append('access_key', 'ae057aa6-cd19-422e-90b2-f9895d6ed069');
-    formData.append('subject', `Dopyt z printroom-web: ${data.service || 'Všeobecný'}`);
+    formData.append('subject', `Nový dopyt z webu printroom.sk: ${data.service || 'Všeobecný'}`);
     formData.append('from_name', 'Printroom Web');
-    formData.append('name', data.name);
-    formData.append('email', data.email);
-    formData.append('phone', data.phone || '-');
-    formData.append('service', data.service || '-');
-    formData.append('message', data.message);
+    formData.append('template_title', 'Nový dopyt z webstránky');
+    formData.append('template_message', 'Niekto vyplnil kontaktný formulár na vašej webstránke. Detaily nižšie.');
+    formData.append('Meno', data.name);
+    formData.append('Email', data.email);
+    formData.append('Telefón', data.phone || '-');
+    formData.append('Služba', data.service || '-');
+    formData.append('Správa', data.message);
     // Honeypot
     formData.append('botcheck', '');
 
