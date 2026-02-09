@@ -253,31 +253,51 @@ export default function HomePageDark() {
               </div>
             </div>
           </div>
-          <div className="lg:col-span-5 relative mt-12 lg:mt-0">
-            <div className="space-y-4">
-              {testimonials.map((t, i) => (
-                <div key={i} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 group">
-                  <div className="flex gap-1 mb-3">
-                    {Array.from({ length: t.rating }).map((_, j) => (
-                      <Star key={j} size={14} className="fill-[#f97316] text-[#f97316]" />
-                    ))}
+          <div className="lg:col-span-5 relative mt-12 lg:mt-0 min-h-[500px] hidden lg:block">
+            {/* Floating testimonial bubbles */}
+            {testimonials.map((t, i) => {
+              const positions = [
+                { top: '0%', left: '10%', rotate: '-2deg', delay: '0s' },
+                { top: '35%', left: '45%', rotate: '1.5deg', delay: '0.5s' },
+                { top: '65%', left: '5%', rotate: '-1deg', delay: '1s' },
+              ];
+              const pos = positions[i];
+              return (
+                <div
+                  key={i}
+                  className="absolute animate-float group"
+                  style={{
+                    top: pos.top,
+                    left: pos.left,
+                    transform: `rotate(${pos.rotate})`,
+                    animationDelay: pos.delay,
+                    animationDuration: `${4 + i}s`,
+                  }}
+                >
+                  {/* Speech bubble */}
+                  <div className="relative bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 max-w-[280px] shadow-xl shadow-black/20 hover:bg-white/15 hover:scale-105 transition-all duration-300">
+                    <div className="flex gap-1 mb-2">
+                      {Array.from({ length: t.rating }).map((_, j) => (
+                        <Star key={j} size={10} className="fill-[#f97316] text-[#f97316]" />
+                      ))}
+                    </div>
+                    <p className="text-white/80 text-xs leading-relaxed">"{t.text}"</p>
+                    {/* Bubble tail */}
+                    <div className="absolute -bottom-2 left-6 w-4 h-4 bg-white/10 border-b border-r border-white/15 transform rotate-45"></div>
                   </div>
-                  <p className="text-white/70 text-sm leading-relaxed mb-4 italic">"{t.text}"</p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#f97316] to-[#f59e0b] flex items-center justify-center text-white font-black text-sm">
+                  {/* Avatar */}
+                  <div className="flex items-center gap-2 mt-4 ml-2">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#f97316] to-[#f59e0b] flex items-center justify-center text-white font-black text-sm shadow-lg shadow-orange-500/30 ring-2 ring-white/20">
                       {t.name.charAt(0)}
                     </div>
                     <div>
-                      <div className="text-white font-bold text-sm">{t.name}</div>
-                      <div className="text-white/40 text-xs">{t.role}</div>
+                      <div className="text-white font-bold text-xs">{t.name}</div>
+                      <div className="text-white/40 text-[10px]">{t.role}</div>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
-            {/* Floating accent element */}
-            <div className="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-br from-[#f97316] to-[#f59e0b] rounded-2xl rotate-12 opacity-80 blur-sm -z-10"></div>
-            <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl -rotate-12 opacity-60 blur-sm -z-10"></div>
+              );
+            })}
           </div>
         </div>
       </section>
