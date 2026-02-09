@@ -248,8 +248,9 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-[#0a0e27]">
-        {/* Background image with parallax */}
-        <div className="absolute inset-0 z-0" style={{ backgroundImage: 'url(/images/services/hero-tlaciaren-splash-hd.jpg)', backgroundSize: 'cover', backgroundPosition: 'center bottom', backgroundAttachment: 'fixed' }}>
+        {/* Background image */}
+        <div className="absolute inset-0 z-0">
+          <img src="/images/services/hero-tlaciaren-splash-hd.jpg" alt="" className="w-full h-full object-cover object-bottom" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e27] via-[#0a0e27]/50 to-transparent"></div>
         </div>
 
