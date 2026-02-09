@@ -42,7 +42,7 @@ export default function ServicePageLayout({
   return (
     <>
       {/* Breadcrumb */}
-      <div className="bg-slate-50 border-b border-slate-100">
+      <div className="bg-slate-50 border-b border-slate-100 pt-20">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <nav className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-slate-400">
             <Link to="/" className="hover:text-[#005088] transition">Domov</Link>

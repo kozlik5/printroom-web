@@ -25,14 +25,15 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/95 backdrop-blur shadow-lg py-2' : 'bg-transparent py-4'
+        scrolled ? 'bg-white/95 backdrop-blur shadow-lg py-2' : 'bg-white shadow-md py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <span className={`text-2xl font-black uppercase tracking-tighter ${scrolled ? 'text-slate-900' : 'text-white'}`}>
-            Print<span className="text-accent">Room</span>
-          </span>
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 bg-gradient-to-br from-[#005088] to-[#0070b8] text-white flex items-center justify-center font-black text-xl rounded-xl">P</div>
+            <span className="text-2xl font-black uppercase tracking-tighter text-slate-900">Printroom</span>
+          </div>
         </Link>
 
         {/* Desktop nav */}
@@ -44,9 +45,7 @@ export default function Header() {
               className={`text-sm font-bold uppercase tracking-wider transition-colors ${
                 location.pathname === l.to
                   ? 'text-accent'
-                  : scrolled
-                  ? 'text-slate-700 hover:text-primary'
-                  : 'text-white/90 hover:text-white'
+                  : 'text-slate-700 hover:text-primary'
               }`}
             >
               {l.label}
@@ -62,7 +61,7 @@ export default function Header() {
 
         {/* Mobile toggle */}
         <button
-          className={`md:hidden ${scrolled ? 'text-slate-900' : 'text-white'}`}
+          className="md:hidden text-slate-900"
           onClick={() => setOpen(!open)}
         >
           {open ? <X size={28} /> : <Menu size={28} />}
