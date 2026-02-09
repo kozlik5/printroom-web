@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   Printer, Shirt, Maximize, FileText, Car,
   ArrowRight, CheckCircle2, Mail, Phone, MapPin, ChevronRight, Star, Gift, Box, Instagram, Facebook, Menu, X,
+  Sun, Moon
 } from 'lucide-react';
 import {
   Chart as ChartJS, CategoryScale, LinearScale, BarElement,
@@ -77,7 +78,7 @@ function AnimatedStat({ end, suffix, label }: { end: number; suffix: string; lab
   return (
     <div ref={ref} className="text-center">
       <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent">{value}</div>
-      <div className="mt-2 text-sm text-slate-400 uppercase tracking-wider font-semibold">{label}</div>
+      <div className="mt-2 text-sm text-slate-400 dark:text-slate-500 uppercase tracking-wider font-semibold">{label}</div>
     </div>
   );
 }
@@ -112,9 +113,9 @@ function HomeContactForm() {
     return (
       <div className="text-center py-12">
         <CheckCircle2 size={48} className="text-green-500 mx-auto mb-4" />
-        <h3 className="text-2xl font-black uppercase mb-2">Ďakujeme!</h3>
-        <p className="text-slate-500">Ozveme sa vám do 24 hodín.</p>
-        <button onClick={() => setStatus('idle')} className="mt-6 text-[#005088] font-bold text-sm uppercase tracking-wider hover:text-[#f97316] transition">Poslať ďalší dopyt</button>
+        <h3 className="text-2xl font-black uppercase mb-2 text-slate-900 dark:text-white">Ďakujeme!</h3>
+        <p className="text-slate-500 dark:text-slate-400">Ozveme sa vám do 24 hodín.</p>
+        <button onClick={() => setStatus('idle')} className="mt-6 text-[#005088] dark:text-[#f97316] font-bold text-sm uppercase tracking-wider hover:text-[#f97316] transition">Poslať ďalší dopyt</button>
       </div>
     );
   }
@@ -124,24 +125,24 @@ function HomeContactForm() {
       {/* Honeypot anti-spam */}
       <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
       <div className="space-y-3">
-        <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">Vaše Meno</label>
-        <input type="text" name="Meno" required className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="Jozef Mrkvička" />
+        <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">Vaše Meno</label>
+        <input type="text" name="Meno" required className="w-full bg-white dark:bg-slate-700/50 border border-slate-200 dark:border-white/20 p-5 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 dark:focus:ring-orange-500/20 transition rounded-xl" placeholder="Jozef Mrkvička" />
       </div>
       <div className="space-y-3">
-        <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">Email</label>
-        <input type="email" name="Email" required className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="vas@email.sk" />
+        <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">Email</label>
+        <input type="email" name="Email" required className="w-full bg-white dark:bg-slate-700/50 border border-slate-200 dark:border-white/20 p-5 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 dark:focus:ring-orange-500/20 transition rounded-xl" placeholder="vas@email.sk" />
       </div>
       <div className="space-y-3">
-        <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">Telefón</label>
-        <input type="tel" name="Telefon" className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="+421 ..." />
+        <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">Telefón</label>
+        <input type="tel" name="Telefon" className="w-full bg-white dark:bg-slate-700/50 border border-slate-200 dark:border-white/20 p-5 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 dark:focus:ring-orange-500/20 transition rounded-xl" placeholder="+421 ..." />
       </div>
       <div className="space-y-3">
-        <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">Vaša Požiadavka</label>
-        <textarea name="Sprava" rows={4} required className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="Povedzte nám o vašich plánoch..."></textarea>
+        <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">Vaša Požiadavka</label>
+        <textarea name="Sprava" rows={4} required className="w-full bg-white dark:bg-slate-700/50 border border-slate-200 dark:border-white/20 p-5 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 dark:focus:ring-orange-500/20 transition rounded-xl" placeholder="Povedzte nám o vašich plánoch..."></textarea>
       </div>
       <label className="flex items-start gap-3 cursor-pointer">
         <input type="checkbox" required className="mt-1 accent-[#f97316]" />
-        <span className="text-xs text-slate-500">Súhlasím so spracovaním osobných údajov podľa <a href="/gdpr" className="text-[#005088] underline">Zásad ochrany osobných údajov</a></span>
+        <span className="text-xs text-slate-500 dark:text-slate-400">Súhlasím so spracovaním osobných údajov podľa <a href="/gdpr" className="text-[#005088] dark:text-[#f97316] underline">Zásad ochrany osobných údajov</a></span>
       </label>
       {status === 'error' && <p className="text-red-500 text-sm font-bold">Nastala chyba. Skúste znova alebo nás kontaktujte telefonicky.</p>}
       <button disabled={status === 'sending'} className="w-full bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white py-6 font-black uppercase text-xs tracking-[0.3em] hover:shadow-xl hover:shadow-orange-500/25 hover:scale-[1.02] transition-all duration-300 rounded-xl group flex items-center justify-center gap-4 disabled:opacity-50">
@@ -155,6 +156,7 @@ function HomeContactForm() {
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -162,23 +164,56 @@ export default function HomePage() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Dark mode initialization and persistence
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const shouldBeDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+    
+    setIsDark(shouldBeDark);
+    if (shouldBeDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+    
+    if (newTheme) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-orange-100 selection:text-orange-900">
+    <div className="min-h-screen bg-white dark:bg-[#0f1129] text-slate-900 dark:text-white font-sans selection:bg-orange-100 selection:text-orange-900 transition-colors duration-300">
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/80 backdrop-blur-xl shadow-lg shadow-slate-200/50 py-3' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/80 dark:bg-[#0f1129]/90 backdrop-blur-xl shadow-lg shadow-slate-200/50 dark:shadow-slate-900/50 py-3' : 'bg-transparent py-6'}`}>
         <div className="max-w-[1400px] mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-2 group cursor-pointer">
             <div className="w-10 h-10 bg-gradient-to-br from-[#005088] to-[#0070b8] text-white flex items-center justify-center font-black text-xl rounded-xl group-hover:from-[#f97316] group-hover:to-[#f59e0b] transition-all duration-300 shadow-lg shadow-blue-500/20">P</div>
-            <span className="text-2xl font-black uppercase tracking-tighter text-slate-900">Printroom</span>
+            <span className="text-2xl font-black uppercase tracking-tighter text-slate-900 dark:text-white">Printroom</span>
           </div>
-          <div className="hidden lg:flex items-center gap-12 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500">
-            <a href="#" className="hover:text-[#005088] transition">Domov</a>
-            <a href="#sluzby" className="hover:text-[#005088] transition">Služby</a>
-            <a href="#proces" className="hover:text-[#005088] transition">O nás</a>
-            <a href="#kontakt" className="hover:text-[#005088] transition">Kontakt</a>
+          <div className="hidden lg:flex items-center gap-12 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+            <a href="#" className="hover:text-[#005088] dark:hover:text-[#f97316] transition">Domov</a>
+            <a href="#sluzby" className="hover:text-[#005088] dark:hover:text-[#f97316] transition">Služby</a>
+            <a href="#proces" className="hover:text-[#005088] dark:hover:text-[#f97316] transition">O nás</a>
+            <a href="#kontakt" className="hover:text-[#005088] dark:hover:text-[#f97316] transition">Kontakt</a>
           </div>
           <div className="flex items-center gap-4">
-            <a href="tel:+421903584020" className="flex items-center gap-2 text-[11px] font-bold text-slate-500 hover:text-[#005088] transition">
+            <button 
+              onClick={toggleTheme}
+              className="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300"
+              aria-label="Toggle theme"
+            >
+              {isDark ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+            <a href="tel:+421903584020" className="flex items-center gap-2 text-[11px] font-bold text-slate-500 dark:text-slate-400 hover:text-[#005088] dark:hover:text-[#f97316] transition">
               <Phone size={14} className="text-[#f97316]" />
               <span className="hidden sm:inline">+421 903 584 020</span>
               <span className="sm:hidden">Zavolať</span>
@@ -187,19 +222,19 @@ export default function HomePage() {
               Cenová Ponuka
             </a>
           </div>
-          <button className="lg:hidden text-slate-900" onClick={() => setMobileOpen(!mobileOpen)}>
+          <button className="lg:hidden text-slate-900 dark:text-white" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="lg:hidden bg-white shadow-2xl border-t">
+          <div className="lg:hidden bg-white dark:bg-[#1a1d3a] shadow-2xl border-t border-slate-200 dark:border-slate-700">
             <div className="flex flex-col p-6 gap-4">
-              <a href="#" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 hover:text-[#005088]">Domov</a>
-              <a href="#sluzby" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 hover:text-[#005088]">Služby</a>
-              <a href="#proces" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 hover:text-[#005088]">O nás</a>
-              <a href="#kontakt" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 hover:text-[#005088]">Kontakt</a>
-              <a href="tel:+421903584020" onClick={() => setMobileOpen(false)} className="flex items-center gap-3 text-base font-bold py-2 text-[#005088]">
+              <a href="#" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 dark:text-slate-300 hover:text-[#005088] dark:hover:text-[#f97316]">Domov</a>
+              <a href="#sluzby" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 dark:text-slate-300 hover:text-[#005088] dark:hover:text-[#f97316]">Služby</a>
+              <a href="#proces" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 dark:text-slate-300 hover:text-[#005088] dark:hover:text-[#f97316]">O nás</a>
+              <a href="#kontakt" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 dark:text-slate-300 hover:text-[#005088] dark:hover:text-[#f97316]">Kontakt</a>
+              <a href="tel:+421903584020" onClick={() => setMobileOpen(false)} className="flex items-center gap-3 text-base font-bold py-2 text-[#005088] dark:text-[#f97316]">
                 <Phone size={18} className="text-[#f97316]" /> +421 903 584 020
               </a>
               <a href="#kontakt" onClick={() => setMobileOpen(false)} className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white text-center px-6 py-4 rounded-xl font-bold uppercase tracking-wider mt-2">
@@ -220,39 +255,39 @@ export default function HomePage() {
         <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7">
             {/* Pill badge */}
-            <div className="inline-flex items-center gap-2 mb-8 bg-blue-50 border border-blue-100 px-5 py-2 rounded-full">
+            <div className="inline-flex items-center gap-2 mb-8 bg-blue-50 dark:bg-slate-800/50 border border-blue-100 dark:border-slate-700 px-5 py-2 rounded-full">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#005088]">🖨️ Od roku 2013 v Petržalke</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#005088] dark:text-[#f97316]">🖨️ Od roku 2013 v Petržalke</span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[1] tracking-tighter mb-8 text-slate-900">
+            <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[1] tracking-tighter mb-8 text-slate-900 dark:text-white">
               MODERNÁ TLAČ <br />
               <span className="text-[#005088]">PRE VÁŠ</span> <br />
               <span className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent italic">BIZNIS.</span>
             </h1>
-            <p className="text-slate-500 text-lg md:text-xl max-w-xl mb-12 font-light leading-relaxed italic border-l-4 border-gradient-to-b border-[#005088] pl-6">
+            <p className="text-slate-500 dark:text-slate-400 text-lg md:text-xl max-w-xl mb-12 font-light leading-relaxed italic border-l-4 border-gradient-to-b border-[#005088] dark:border-[#f97316] pl-6">
               Váš partner v Petržalke od roku 2013. Prinášame komplexné riešenia od 1 kusu po tisícové série.
             </p>
             <div className="flex flex-wrap gap-6">
               <a href="#sluzby" className="bg-gradient-to-r from-[#005088] to-[#0070b8] text-white px-10 py-5 font-black uppercase text-xs tracking-[0.2em] flex items-center gap-4 hover:shadow-xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300 rounded-2xl">
                 Naše Služby <ArrowRight size={18} />
               </a>
-              <div className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+              <div className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">
                 <span className="text-2xl italic font-black tracking-normal bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent">11+</span> rokov skúseností
               </div>
             </div>
           </div>
           <div className="lg:col-span-5 relative mt-12 lg:mt-0">
-            <div className="aspect-[4/5] bg-slate-100 rounded-3xl overflow-hidden shadow-2xl shadow-slate-300/50 relative group border-8 border-white">
+            <div className="aspect-[4/5] bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden shadow-2xl shadow-slate-300/50 dark:shadow-slate-900/50 relative group border-8 border-white dark:border-slate-700">
               <img
                 src="/images/services/hero-alt.jpg"
                 alt="Potlačené tričká a nálepky"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
               />
-              <div className="absolute bottom-6 right-6 bg-white/80 backdrop-blur-xl text-slate-900 p-6 rounded-2xl shadow-xl border border-white/50">
+              <div className="absolute bottom-6 right-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl text-slate-900 dark:text-white p-6 rounded-2xl shadow-xl border border-white/50 dark:border-slate-700/50">
                 <CheckCircle2 className="text-[#f97316] mb-3" size={32} />
                 <div className="text-xl font-black">99.8%</div>
-                <div className="text-[8px] font-bold uppercase tracking-widest text-slate-500">Spokojnosť klientov</div>
+                <div className="text-[8px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">Spokojnosť klientov</div>
               </div>
             </div>
             {/* Floating accent element */}
@@ -263,14 +298,14 @@ export default function HomePage() {
       </section>
 
       {/* Bento Services Section */}
-      <section id="sluzby" className="py-24 md:py-32 bg-gradient-to-b from-slate-50 to-white">
+      <section id="sluzby" className="py-24 md:py-32 bg-gradient-to-b from-slate-50 dark:from-slate-800/30 to-white dark:to-[#0f1129]">
         <div className="max-w-[1400px] mx-auto px-6 text-center lg:text-left">
           <div className="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
-            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none italic text-slate-900">
+            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none italic text-slate-900 dark:text-white">
               Čo <br />
               <span className="bg-gradient-to-r from-[#005088] to-[#0070b8] bg-clip-text text-transparent">dokážeme.</span>
             </h2>
-            <p className="text-slate-400 max-w-sm text-xs font-bold uppercase tracking-[0.3em] text-center lg:text-right">
+            <p className="text-slate-400 dark:text-slate-500 max-w-sm text-xs font-bold uppercase tracking-[0.3em] text-center lg:text-right">
               01 — Produkčné disciplíny pod jednou strechou
             </p>
           </div>
@@ -310,12 +345,12 @@ export default function HomePage() {
       </section>
 
       {/* Process Pipeline */}
-      <section id="proces" className="py-24 md:py-32 bg-white relative overflow-hidden">
+      <section id="proces" className="py-24 md:py-32 bg-white dark:bg-[#0f1129] relative overflow-hidden">
         <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-gradient-to-r from-[#005088]/5 to-transparent rounded-full blur-3xl -z-10"></div>
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
-              <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter italic mb-12 text-slate-900">
+              <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter italic mb-12 text-slate-900 dark:text-white">
                 Plynulá <br />
                 <span className="bg-gradient-to-r from-[#f97316] to-[#ef4444] bg-clip-text text-transparent">produkcia.</span>
               </h2>
@@ -328,9 +363,9 @@ export default function HomePage() {
                 ].map((item, i) => (
                   <div key={i} className="flex gap-8 group items-start">
                     <span className="text-4xl font-black bg-gradient-to-b from-slate-200 to-slate-100 bg-clip-text text-transparent group-hover:from-[#005088] group-hover:to-[#0070b8] transition-all duration-300">{item.step}</span>
-                    <div className="border-l-2 border-slate-100 group-hover:border-[#f97316] transition-colors pl-6">
-                      <h4 className="font-black uppercase text-sm tracking-widest mb-2 text-slate-900">{item.title}</h4>
-                      <p className="text-slate-500 text-sm font-light italic">{item.text}</p>
+                    <div className="border-l-2 border-slate-100 dark:border-slate-700 group-hover:border-[#f97316] transition-colors pl-6">
+                      <h4 className="font-black uppercase text-sm tracking-widest mb-2 text-slate-900 dark:text-white">{item.title}</h4>
+                      <p className="text-slate-500 dark:text-slate-400 text-sm font-light italic">{item.text}</p>
                     </div>
                   </div>
                 ))}
@@ -348,7 +383,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-16 bg-slate-50 dark:bg-[#1a1d3a]">
         <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
           <AnimatedStat end={5000} suffix="+" label="Dokončených zákaziek" />
           <AnimatedStat end={24} suffix="h" label="Express výroba" />
@@ -409,29 +444,29 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-gradient-to-b from-white to-slate-50">
+      <section className="py-24 bg-gradient-to-b from-white dark:from-[#0f1129] to-slate-50 dark:to-[#1a1d3a]">
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter italic">
+            <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter italic text-slate-900 dark:text-white">
               Čo hovoria <span className="bg-gradient-to-r from-[#005088] to-[#0070b8] bg-clip-text text-transparent">klienti.</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((t, i) => (
-              <div key={i} className="bg-white/80 backdrop-blur-lg rounded-2xl p-8 border border-slate-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div key={i} className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-lg rounded-2xl p-8 border border-slate-100 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex gap-1 mb-4">
                   {Array.from({ length: t.rating }).map((_, j) => (
                     <Star key={j} size={16} className="fill-[#f97316] text-[#f97316]" />
                   ))}
                 </div>
-                <p className="text-slate-600 italic font-light mb-6 leading-relaxed">"{t.text}"</p>
+                <p className="text-slate-600 dark:text-slate-300 italic font-light mb-6 leading-relaxed">"{t.text}"</p>
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#005088] to-[#0070b8] flex items-center justify-center text-white font-black text-sm">
                     {t.name[0]}
                   </div>
                   <div>
-                    <div className="font-black text-sm">{t.name}</div>
-                    <div className="text-[10px] text-slate-400 uppercase tracking-widest">{t.role}</div>
+                    <div className="font-black text-sm text-slate-900 dark:text-white">{t.name}</div>
+                    <div className="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-widest">{t.role}</div>
                   </div>
                 </div>
               </div>
@@ -441,7 +476,7 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section */}
-      <section id="kontakt" className="py-32 bg-white relative">
+      <section id="kontakt" className="py-32 bg-white dark:bg-[#0f1129] relative">
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="bg-gradient-to-br from-[#005088] to-[#003d68] rounded-3xl overflow-hidden flex flex-col lg:flex-row shadow-2xl shadow-blue-900/20">
             <div className="lg:w-1/2 p-12 md:p-20 text-white flex flex-col justify-between">
@@ -482,7 +517,7 @@ export default function HomePage() {
                 </a>
               </div>
             </div>
-            <div className="lg:w-1/2 bg-slate-50 p-12 md:p-20">
+            <div className="lg:w-1/2 bg-slate-50 dark:bg-slate-800/50 p-12 md:p-20">
               <HomeContactForm />
             </div>
           </div>
@@ -490,18 +525,18 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-50 py-16 px-6 border-t border-slate-100">
+      <footer className="bg-slate-50 dark:bg-[#0a0c1a] py-16 px-6 border-t border-slate-100 dark:border-slate-800">
         <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-gradient-to-br from-[#005088] to-[#0070b8] text-white flex items-center justify-center font-black rounded-xl text-lg">P</div>
-            <span className="text-xl font-black uppercase tracking-tighter text-slate-900 italic">Printroom.</span>
+            <span className="text-xl font-black uppercase tracking-tighter text-slate-900 dark:text-white italic">Printroom.</span>
           </div>
-          <div className="text-[10px] font-bold uppercase tracking-[0.5em] text-slate-400 text-center">
+          <div className="text-[10px] font-bold uppercase tracking-[0.5em] text-slate-400 dark:text-slate-500 text-center">
             © 2013—2026 Printroom Studio Bratislava • Všetky práva vyhradené
           </div>
-          <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-[#005088]">
+          <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-[#005088] dark:text-[#f97316]">
             Líder v kvalite
-            <div className="h-4 w-px bg-slate-300"></div>
+            <div className="h-4 w-px bg-slate-300 dark:bg-slate-600"></div>
             Vyrobené na Slovensku
           </div>
         </div>
