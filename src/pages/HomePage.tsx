@@ -108,9 +108,10 @@ export default function HomePage() {
             <a href="#kontakt" className="hover:text-[#005088] transition">Kontakt</a>
           </div>
           <div className="flex items-center gap-4">
-            <a href="tel:+421903584020" className="hidden sm:flex items-center gap-2 text-[11px] font-bold text-slate-500 hover:text-[#005088] transition">
+            <a href="tel:+421903584020" className="flex items-center gap-2 text-[11px] font-bold text-slate-500 hover:text-[#005088] transition">
               <Phone size={14} className="text-[#f97316]" />
-              +421 903 584 020
+              <span className="hidden sm:inline">+421 903 584 020</span>
+              <span className="sm:hidden">Zavolať</span>
             </a>
             <a href="#kontakt" className="hidden sm:inline-block bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white px-8 py-3 text-[11px] font-bold uppercase tracking-widest rounded-xl hover:shadow-xl hover:shadow-orange-500/25 hover:scale-105 transition-all duration-300">
               Cenová Ponuka
