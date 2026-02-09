@@ -402,12 +402,15 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-            <div className="bg-gradient-to-br from-[#005088] to-[#003d68] aspect-square rounded-3xl overflow-hidden relative group shadow-2xl shadow-blue-900/20">
+            <div className="bg-[#0a0e27] aspect-square rounded-3xl overflow-hidden relative group shadow-2xl shadow-blue-900/20 flex items-center justify-center">
               <img
-                src="/images/services/3d-sluzby.jpg"
-                alt="3D služby - hrnček s potlačou"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 opacity-80 transition-all duration-1000"
+                src="/images/services/hero-tlaciaren-splash-hd.jpg"
+                alt="Print room - tlačiareň"
+                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000"
               />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <img src="/images/logo-white.png" alt="Print room logo" className="w-1/3 drop-shadow-2xl" />
+              </div>
             </div>
           </div>
         </div>
