@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Printer, Shirt, Maximize, FileText, Car,
-  ArrowRight, CheckCircle2, Mail, Phone, MapPin, ChevronRight, Star, Gift, Box, Instagram, Facebook,
+  ArrowRight, CheckCircle2, Mail, Phone, MapPin, ChevronRight, Star, Gift, Box, Instagram, Facebook, Menu, X,
 } from 'lucide-react';
 import {
   Chart as ChartJS, CategoryScale, LinearScale, BarElement,
@@ -84,6 +84,7 @@ function AnimatedStat({ end, suffix, label }: { end: number; suffix: string; lab
 
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -106,10 +107,27 @@ export default function HomePage() {
             <a href="#proces" className="hover:text-[#005088] transition">O nás</a>
             <a href="#kontakt" className="hover:text-[#005088] transition">Kontakt</a>
           </div>
-          <a href="#kontakt" className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white px-8 py-3 text-[11px] font-bold uppercase tracking-widest rounded-xl hover:shadow-xl hover:shadow-orange-500/25 hover:scale-105 transition-all duration-300">
+          <a href="#kontakt" className="hidden sm:inline-block bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white px-8 py-3 text-[11px] font-bold uppercase tracking-widest rounded-xl hover:shadow-xl hover:shadow-orange-500/25 hover:scale-105 transition-all duration-300">
             Cenová Ponuka
           </a>
+          <button className="lg:hidden text-slate-900" onClick={() => setMobileOpen(!mobileOpen)}>
+            {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
+        {/* Mobile menu */}
+        {mobileOpen && (
+          <div className="lg:hidden bg-white shadow-2xl border-t">
+            <div className="flex flex-col p-6 gap-4">
+              <a href="#" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 hover:text-[#005088]">Domov</a>
+              <a href="#sluzby" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 hover:text-[#005088]">Služby</a>
+              <a href="#proces" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 hover:text-[#005088]">O nás</a>
+              <a href="#kontakt" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 hover:text-[#005088]">Kontakt</a>
+              <a href="#kontakt" onClick={() => setMobileOpen(false)} className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white text-center px-6 py-4 rounded-xl font-bold uppercase tracking-wider mt-2">
+                Cenová Ponuka
+              </a>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
