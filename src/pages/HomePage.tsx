@@ -39,6 +39,7 @@ const testimonials = [
   { name: 'Martin K.', role: 'Marketingový manažér', text: 'Spolupráca s Printroom bola bezproblémová. Tričká pre celý tím do 3 dní, perfektná kvalita.', rating: 5 },
   { name: 'Jana S.', role: 'Koordinátorka eventov', text: 'Bannery na konferenciu zvládli za 24 hodín. Farby presné, materiál odolný. Odporúčam.', rating: 5 },
   { name: 'Peter D.', role: 'Majiteľ e-shopu', text: 'Vizitky a katalógy vyzerajú prémiovo. Konečne dodávateľ, na ktorého sa môžeme spoľahnúť.', rating: 5 },
+  { name: 'Lucia M.', role: 'Grafická dizajnérka', text: 'Rýchla komunikácia a výsledok presne podľa návrhu. Polepy na autá vyzerajú fantasticky.', rating: 5 },
 ];
 
 /* Animated counter hook */
@@ -277,22 +278,52 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="lg:col-span-5 relative mt-12 lg:mt-0">
-            <div className="aspect-[4/5] bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden shadow-2xl shadow-slate-300/50 dark:shadow-slate-900/50 relative group border-8 border-white dark:border-slate-700">
-              <img
-                src="/images/services/hero-alt.jpg"
-                alt="Potlačené tričká a nálepky"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-              />
-              <div className="absolute bottom-6 right-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl text-slate-900 dark:text-white p-6 rounded-2xl shadow-xl border border-white/50 dark:border-slate-700/50">
-                <CheckCircle2 className="text-[#f97316] mb-3" size={32} />
-                <div className="text-xl font-black">99.8%</div>
-                <div className="text-[8px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">Spokojnosť klientov</div>
-              </div>
-            </div>
-            {/* Floating accent element */}
-            <div className="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-br from-[#f97316] to-[#f59e0b] rounded-2xl rotate-12 opacity-80 blur-sm -z-10"></div>
-            <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-gradient-to-br from-[#005088] to-[#0070b8] rounded-2xl -rotate-12 opacity-60 blur-sm -z-10"></div>
+          <div className="lg:col-span-5 relative mt-12 lg:mt-0 min-h-[500px] hidden lg:block">
+            {/* Floating testimonial bubbles */}
+            {testimonials.map((t, i) => {
+              const positions = [
+                { top: '0%', left: '10%', rotate: '-2deg', delay: '0s' },
+                { top: '28%', left: '50%', rotate: '1.5deg', delay: '0.5s' },
+                { top: '55%', left: '0%', rotate: '-1deg', delay: '1s' },
+                { top: '75%', left: '40%', rotate: '2deg', delay: '1.5s' },
+              ];
+              const pos = positions[i];
+              return (
+                <div
+                  key={i}
+                  className="absolute animate-float group"
+                  style={{
+                    top: pos.top,
+                    left: pos.left,
+                    transform: `rotate(${pos.rotate})`,
+                    animationDelay: pos.delay,
+                    animationDuration: `${4 + i}s`,
+                  }}
+                >
+                  {/* Speech bubble */}
+                  <div className="relative bg-white/80 dark:bg-white/10 backdrop-blur-md border border-slate-200 dark:border-white/15 rounded-2xl p-4 max-w-[280px] shadow-xl shadow-slate-200/50 dark:shadow-black/20 hover:bg-white dark:hover:bg-white/15 hover:scale-105 transition-all duration-300">
+                    <div className="flex gap-1 mb-2">
+                      {Array.from({ length: t.rating }).map((_, j) => (
+                        <Star key={j} size={10} className="fill-[#f97316] text-[#f97316]" />
+                      ))}
+                    </div>
+                    <p className="text-slate-600 dark:text-white/80 text-xs leading-relaxed">"{t.text}"</p>
+                    {/* Bubble tail */}
+                    <div className="absolute -bottom-2 left-6 w-4 h-4 bg-white/80 dark:bg-white/10 border-b border-r border-slate-200 dark:border-white/15 transform rotate-45"></div>
+                  </div>
+                  {/* Avatar */}
+                  <div className="flex items-center gap-2 mt-4 ml-2">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#f97316] to-[#f59e0b] flex items-center justify-center text-white font-black text-sm shadow-lg shadow-orange-500/30 ring-2 ring-white dark:ring-white/20">
+                      {t.name.charAt(0)}
+                    </div>
+                    <div>
+                      <div className="text-slate-900 dark:text-white font-bold text-xs">{t.name}</div>
+                      <div className="text-slate-400 dark:text-white/40 text-[10px]">{t.role}</div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
