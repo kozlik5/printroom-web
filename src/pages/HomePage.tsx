@@ -251,6 +251,7 @@ export default function HomePage() {
         {/* Background image */}
         <div className="absolute inset-0 z-0">
           <img src="/images/services/hero-tlaciaren-splash-hd.jpg" alt="" className="w-full h-full object-cover object-bottom" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e27] via-[#0a0e27]/70 to-transparent"></div>
         </div>
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
