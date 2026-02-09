@@ -3,13 +3,17 @@ import { Shirt, Gift, Box, FileText, Image, Car } from 'lucide-react';
 import type { ReactNode } from 'react';
 
 const categories: {
+  id: string;
   icon: ReactNode;
   title: string;
   text: string;
   items: string[];
   cta: string;
+  slug: string;
+  img: string;
 }[] = [
   {
+    id: 'potlac-textilu',
     icon: <Shirt size={32} />,
     title: 'Potlač textilu',
     text: 'Potlačíme čokoľvek - tričká, mikiny, čiapky, pracovné odevy, tašky. Používame sieťotlač pre veľké náklady a DTG pre malosériové zákazky. Minimálne množstvo už od 10 kusov.',
@@ -21,8 +25,11 @@ const categories: {
       'Reklamné tašky a batohy',
     ],
     cta: 'Chcem cenovú ponuku na textil',
+    slug: 'potlac-textilu',
+    img: '/images/services/potlac-textilu.jpg',
   },
   {
+    id: 'reklamne-predmety',
     icon: <Gift size={32} />,
     title: 'Reklamné predmety',
     text: 'Firemné darčeky, ktoré nezakončia v koši. Perá, hrnčeky, zápisníky, powerbanky a stovky ďalších produktov s vašim logom. Dodávame firmám v Bratislave a okolí.',
@@ -35,8 +42,11 @@ const categories: {
       'Dáždniky a outdoorové potreby',
     ],
     cta: 'Chcem katalóg reklamných predmetov',
+    slug: 'reklamne-predmety',
+    img: '/images/services/reklamne-predmety.jpg',
   },
   {
+    id: '3d-sluzby',
     icon: <Box size={32} />,
     title: '3D tlač, skenovanie a modelovanie',
     text: 'Komplexné 3D služby pre priemysel aj kreatívcov. Vytlačíme prototypy, náhradné diely, architektonické modely. Naskenujeme existujúce objekty a vytvoríme 3D model na mieru.',
@@ -48,8 +58,11 @@ const categories: {
       'Architektonické makety',
     ],
     cta: 'Chcem konzultáciu k 3D projektu',
+    slug: '3d-sluzby',
+    img: '/images/services/3d-sluzby.jpg',
   },
   {
+    id: 'tlac-polygrafia',
     icon: <FileText size={32} />,
     title: 'Tlač a polygrafia',
     text: 'Klasická polygrafia v modernom prevedení. Vizitky, brožúry, katalógy, letáky. Od jedného kusu po tisícové náklady. Expresná výroba vizitiek do 24 hodín.',
@@ -61,8 +74,11 @@ const categories: {
       'Kalendáre a diáre',
     ],
     cta: 'Chcem cenovú ponuku na tlač',
+    slug: 'tlac-polygrafia',
+    img: '/images/services/vizitky.jpg',
   },
   {
+    id: 'bannery-velkoformat',
     icon: <Image size={32} />,
     title: 'Bannery a veľkoformátová tlač',
     text: 'Veľkoformátová tlač pre eventy, predajne aj kancelárie. Roll-upy, X-bannery, mesh bannery, backlity. Dodanie už do 24 hodín pri expresných objednávkach.',
@@ -74,8 +90,11 @@ const categories: {
       'PVC dosky a forex',
     ],
     cta: 'Chcem cenovú ponuku na bannery',
+    slug: 'bannery-velkoformat',
+    img: '/images/services/bannery-plagaty.jpg',
   },
   {
+    id: 'polepy',
     icon: <Car size={32} />,
     title: 'Polepy áut a interiérov',
     text: 'Profesionálne polepy vozidiel, výkladov a interiérov. Od návrhu cez výrobu po samotnú aplikáciu. Používame kvalitné fólie s dlhou životnosťou.',
@@ -87,6 +106,8 @@ const categories: {
       'Reklamné nálepky a samolepky',
     ],
     cta: 'Chcem naceniť polep',
+    slug: 'polepy',
+    img: '/images/services/polepy.jpg',
   },
 ];
 
@@ -112,15 +133,18 @@ export default function SluzbyPage() {
           {categories.map((cat, i) => (
             <div
               key={cat.title}
-              className={`flex flex-col md:flex-row gap-10 items-center ${
+              id={cat.id}
+              className={`scroll-mt-24 flex flex-col md:flex-row gap-10 items-center ${
                 i % 2 === 1 ? 'md:flex-row-reverse' : ''
               }`}
             >
               <div className="flex-1">
                 <div className="text-primary mb-4">{cat.icon}</div>
-                <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-slate-900">
-                  {cat.title}
-                </h2>
+                <Link to={`/sluzby/${cat.slug}`} className="hover:text-[#005088] transition-colors">
+                  <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-slate-900">
+                    {cat.title}
+                  </h2>
+                </Link>
                 <p className="mt-4 text-slate-600 leading-relaxed">{cat.text}</p>
                 <ul className="mt-6 space-y-2">
                   {cat.items.map((item) => (
@@ -138,12 +162,11 @@ export default function SluzbyPage() {
                 </Link>
               </div>
               <div className="flex-1 w-full">
-                <div className="bg-slate-100 rounded-2xl aspect-[4/3] flex items-center justify-center text-slate-300">
-                  <div className="text-center">
-                    <div className="text-primary mb-2">{cat.icon}</div>
-                    <span className="text-sm">Fotka čoskoro</span>
+                <Link to={`/sluzby/${cat.slug}`}>
+                  <div className="rounded-2xl aspect-[4/3] overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                    <img src={cat.img} alt={cat.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                   </div>
-                </div>
+                </Link>
               </div>
             </div>
           ))}

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Printer, Shirt, Maximize, FileText, Car,
   ArrowRight, CheckCircle2, Mail, Phone, MapPin, ChevronRight, Star, Gift, Box, Instagram, Facebook,
@@ -12,13 +13,13 @@ import { Bar } from 'react-chartjs-2';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const services = [
-  { title: 'Potlač Textilu', icon: <Shirt size={32} />, desc: 'Tričká, mikiny, čiapky, pracovné odevy. Sieťotlač aj DTG.', size: 'large', img: '/images/services/potlac-textilu.jpg' },
-  { title: 'Reklamné Predmety', icon: <Gift size={32} />, desc: 'Perá, hrnčeky, tašky, zápisníky s vašim logom.', size: 'small', img: '/images/services/reklamne-predmety.jpg' },
-  { title: '3D Služby', icon: <Box size={32} />, desc: '3D tlač, skenovanie a modelovanie. Prototypy aj hotové diely.', size: 'small', img: '/images/services/3d-sluzby.jpg' },
-  { title: 'Bannery a Plagáty', icon: <Maximize size={32} />, desc: 'Veľkoformátová tlač, roll-upy, mesh. Express do 24h.', size: 'small', img: '/images/services/bannery-plagaty.jpg' },
-  { title: 'Vizitky a Brožúry', icon: <FileText size={32} />, desc: 'Vizitky, katalógy, letáky. Od kusovky po náklad.', size: 'large', img: '/images/services/vizitky.jpg' },
-  { title: 'Polepy', icon: <Car size={32} />, desc: 'Polepy áut, výkladov, interiérov. Návrh aj realizácia.', size: 'small', img: '/images/services/polepy.jpg' },
-  { title: 'Vyšívanie na Textil', icon: <Printer size={32} />, desc: 'Luxusná aplikácia loga vyšívaním na textil.', size: 'small', img: '/images/services/potlac-alt.jpg' },
+  { title: 'Potlač Textilu', icon: <Shirt size={32} />, desc: 'Tričká, mikiny, čiapky, pracovné odevy. Sieťotlač aj DTG.', size: 'large', img: '/images/services/potlac-textilu.jpg', slug: 'potlac-textilu' },
+  { title: 'Reklamné Predmety', icon: <Gift size={32} />, desc: 'Perá, hrnčeky, tašky, zápisníky s vašim logom.', size: 'small', img: '/images/services/reklamne-predmety.jpg', slug: 'reklamne-predmety' },
+  { title: '3D Služby', icon: <Box size={32} />, desc: '3D tlač, skenovanie a modelovanie. Prototypy aj hotové diely.', size: 'small', img: '/images/services/3d-sluzby.jpg', slug: '3d-sluzby' },
+  { title: 'Bannery a Plagáty', icon: <Maximize size={32} />, desc: 'Veľkoformátová tlač, roll-upy, mesh. Express do 24h.', size: 'small', img: '/images/services/bannery-plagaty.jpg', slug: 'bannery-velkoformat' },
+  { title: 'Vizitky a Brožúry', icon: <FileText size={32} />, desc: 'Vizitky, katalógy, letáky. Od kusovky po náklad.', size: 'large', img: '/images/services/vizitky.jpg', slug: 'tlac-polygrafia' },
+  { title: 'Polepy', icon: <Car size={32} />, desc: 'Polepy áut, výkladov, interiérov. Návrh aj realizácia.', size: 'small', img: '/images/services/polepy.jpg', slug: 'polepy' },
+  { title: 'Vyšívanie na Textil', icon: <Printer size={32} />, desc: 'Luxusná aplikácia loga vyšívaním na textil.', size: 'small', img: '/images/services/potlac-alt.jpg', slug: 'potlac-textilu' },
 ];
 
 const chartData = {
@@ -177,9 +178,10 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
             {services.map((service, idx) => (
-              <div
+              <Link
+                to={`/sluzby/${service.slug}`}
                 key={idx}
-                className={`group relative overflow-hidden rounded-2xl transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/10 cursor-pointer ${
+                className={`group relative overflow-hidden rounded-2xl transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/10 cursor-pointer block ${
                   service.size === 'large' ? 'md:col-span-8 h-[450px]' : 'md:col-span-4 h-[450px]'
                 }`}
               >
@@ -203,7 +205,7 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
