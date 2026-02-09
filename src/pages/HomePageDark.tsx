@@ -294,16 +294,6 @@ export default function HomePageDark() {
         </div>
       </section>
 
-      {/* Third Banner - Tlačiareň so splash efektom */}
-      <div className="relative h-[300px] md:h-[400px] overflow-hidden">
-        <img
-          src="/images/services/hero-tlaciaren-splash-hd.jpg"
-          alt="Veľkoformátová tlačiareň s farebnými splash efektmi"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0c22] via-transparent to-[#0f1129]/40"></div>
-      </div>
-
       {/* Bento Services Section */}
       <section id="sluzby" className="py-24 md:py-32 bg-gradient-to-b from-[#0f1129] to-[#0a0c22] relative overflow-hidden">
         {/* Glow effects */}
@@ -392,6 +382,16 @@ export default function HomePageDark() {
           </div>
         </div>
       </section>
+
+      {/* Banner - Potlač textilu */}
+      <div className="relative h-[350px] md:h-[500px] overflow-hidden">
+        <img
+          src="/images/services/hero-printroom-original.jpg"
+          alt="Potlač textilu už od 1 kusu"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1d3a] via-transparent to-[#0a0c22]/60"></div>
+      </div>
 
       {/* Stats Section */}
       <section className="py-16 bg-[#1a1d3a]">
