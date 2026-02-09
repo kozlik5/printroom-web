@@ -251,7 +251,7 @@ export default function HomePage() {
         {/* Background image */}
         <div className="absolute inset-0 z-0">
           <img src="/images/services/hero-tlaciaren-splash-hd.jpg" alt="" className="w-full h-full object-cover object-bottom" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e27] via-[#0a0e27]/70 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e27] via-[#0a0e27]/50 to-transparent"></div>
         </div>
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -264,7 +264,7 @@ export default function HomePage() {
 
             <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[1] tracking-tighter mb-8 text-white">
               MODERNÁ TLAČ <br />
-              <span className="text-[#4da8da]">PRE VÁŠ</span> <br />
+              <span className="text-[#2a6f9a]">PRE VÁŠ</span> <br />
               <span className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent italic">BIZNIS.</span>
             </h1>
             <p className="text-white/60 text-lg md:text-xl max-w-xl mb-12 font-light leading-relaxed italic border-l-4 border-[#f97316] pl-6">
