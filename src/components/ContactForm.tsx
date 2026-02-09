@@ -28,11 +28,8 @@ export default function ContactForm() {
       access_key: 'ae057aa6-cd19-422e-90b2-f9895d6ed069',
       subject: `Nový dopyt z webu printroom.sk: ${data.service || 'Všeobecný'}`,
       from_name: 'Printroom Web',
-      'Meno': data.name,
-      'Email': data.email,
-      'Telefón': data.phone || '-',
-      'Služba': data.service || '-',
-      'Správa': data.message,
+      replyto: data.email,
+      message: `Nový dopyt z webstránky printroom.sk\n\nMeno: ${data.name}\nEmail: ${data.email}\nTelefón: ${data.phone || '-'}\nSlužba: ${data.service || '-'}\nSpráva: ${data.message}`,
     };
 
     try {

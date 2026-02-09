@@ -90,14 +90,16 @@ function HomeContactForm() {
     setStatus('sending');
     const form = e.currentTarget;
     const fd = new FormData(form);
+    const meno = fd.get('Meno') || '';
+    const email = fd.get('Email') || '';
+    const telefon = fd.get('Telefon') || '';
+    const sprava = fd.get('Sprava') || '';
     const payload = {
       access_key: 'ae057aa6-cd19-422e-90b2-f9895d6ed069',
       subject: 'Nový dopyt z webu printroom.sk',
       from_name: 'Printroom Web',
-      'Meno': fd.get('Meno') || '',
-      'Email': fd.get('Email') || '',
-      'Telefón': fd.get('Telefon') || '',
-      'Správa': fd.get('Sprava') || '',
+      replyto: email,
+      message: `Nový dopyt z webstránky printroom.sk\n\nMeno: ${meno}\nEmail: ${email}\nTelefón: ${telefon}\nSpráva: ${sprava}`,
     };
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
