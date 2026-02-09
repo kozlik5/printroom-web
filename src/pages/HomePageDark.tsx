@@ -267,31 +267,6 @@ export default function HomePageDark() {
           </div>
         </div>
 
-        {/* Second Banner - Pod Hero */}
-        <div className="relative h-[400px]">
-          <img
-            src="/images/services/hero-potlac-textilu.jpg"
-            alt="Tričká a vyšívanie"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0f1129]/80 via-[#0f1129]/60 to-transparent"></div>
-          
-          <div className="relative z-10 h-full flex items-center px-6">
-            <div className="max-w-[1400px] mx-auto w-full">
-              <div className="max-w-2xl">
-                <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 text-white">
-                  Textil & <span className="text-[#f97316]">Vyšívanie</span>
-                </h2>
-                <p className="text-white/80 text-lg leading-relaxed mb-8">
-                  Tričká, mikiny, čiapky s potlačou aj luxusným vyšívaním. Od dizajnu po finálny produkt.
-                </p>
-                <div className="flex items-center gap-4 text-sm font-bold uppercase tracking-widest text-white/60">
-                  <span className="text-3xl italic font-black tracking-normal bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent">Express</span> do 24 hodín
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* Bento Services Section */}
@@ -382,16 +357,6 @@ export default function HomePageDark() {
           </div>
         </div>
       </section>
-
-      {/* Banner - Potlač textilu */}
-      <div className="relative h-[350px] md:h-[500px] overflow-hidden">
-        <img
-          src="/images/services/hero-printroom-original.jpg"
-          alt="Potlač textilu už od 1 kusu"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1d3a] via-transparent to-[#0a0c22]/60"></div>
-      </div>
 
       {/* Stats Section */}
       <section className="py-16 bg-[#1a1d3a]">
@@ -485,6 +450,16 @@ export default function HomePageDark() {
           </div>
         </div>
       </section>
+
+      {/* Banner - Potlač textilu */}
+      <div className="relative h-[350px] md:h-[500px] overflow-hidden">
+        <img
+          src="/images/services/hero-printroom-original.jpg"
+          alt="Potlač textilu už od 1 kusu"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0c22]/40 via-transparent to-[#0f1129]/60"></div>
+      </div>
 
       {/* Contact Section */}
       <section id="kontakt" className="py-32 bg-[#0f1129] relative">
