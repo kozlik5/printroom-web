@@ -220,8 +220,8 @@ export default function HomePageDark() {
         {/* Main Hero Banner */}
         <div className="relative h-screen min-h-[600px] max-h-[800px]">
           <img
-            src="/images/services/hero-printroom-original.jpg"
-            alt="Potlač textilu už od 1 kusu - Printroom"
+            src="/images/services/hero-tlaciaren-splash-hd.jpg"
+            alt="Veľkoformátová tlačiareň s farebnými splash efektmi"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0f1129]/60 via-[#0f1129]/40 to-[#0f1129]/80"></div>
