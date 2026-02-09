@@ -254,12 +254,26 @@ export default function HomePageDark() {
             </div>
           </div>
           <div className="lg:col-span-5 relative mt-12 lg:mt-0">
-            <div className="rounded-3xl overflow-hidden shadow-2xl shadow-black/50 relative group border-4 border-white/10">
-              <img
-                src="/images/services/hero-potlac-textilu.jpg"
-                alt="Printroom služby - maloformátová tlač, veľkoformátová tlač, ofsetová tlač, potlač textilu, vyšívanie"
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-1000"
-              />
+            <div className="space-y-4">
+              {testimonials.map((t, i) => (
+                <div key={i} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                  <div className="flex gap-1 mb-3">
+                    {Array.from({ length: t.rating }).map((_, j) => (
+                      <Star key={j} size={14} className="fill-[#f97316] text-[#f97316]" />
+                    ))}
+                  </div>
+                  <p className="text-white/70 text-sm leading-relaxed mb-4 italic">"{t.text}"</p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#f97316] to-[#f59e0b] flex items-center justify-center text-white font-black text-sm">
+                      {t.name.charAt(0)}
+                    </div>
+                    <div>
+                      <div className="text-white font-bold text-sm">{t.name}</div>
+                      <div className="text-white/40 text-xs">{t.role}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
             {/* Floating accent element */}
             <div className="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-br from-[#f97316] to-[#f59e0b] rounded-2xl rotate-12 opacity-80 blur-sm -z-10"></div>
