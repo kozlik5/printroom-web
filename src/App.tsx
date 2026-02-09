@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import CookieConsent from './components/CookieConsent';
 import HomePage from './pages/HomePage';
+import HomePageDark from './pages/HomePageDark';
 import SluzbyPage from './pages/SluzbyPage';
 import PortfolioPage from './pages/PortfolioPage';
 import KontaktPage from './pages/KontaktPage';
@@ -39,6 +40,7 @@ export default function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/dark" element={<HomePageDark />} />
         <Route
           path="*"
           element={
