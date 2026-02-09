@@ -382,7 +382,7 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-            <div className="bg-[#0a0e27] aspect-square rounded-3xl overflow-hidden relative group shadow-2xl shadow-blue-900/20 ring-[3px] ring-white/20 backdrop-blur-sm p-2">
+            <div className="bg-[#0a0e27] aspect-square rounded-3xl overflow-hidden relative group shadow-2xl shadow-blue-900/20 ring-[3px] ring-white/40 backdrop-blur-sm p-2">
               <img
                 src="/images/services/printroom-kolaz.jpg"
                 alt="Print room - služby a logo"
