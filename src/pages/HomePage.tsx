@@ -107,9 +107,15 @@ export default function HomePage() {
             <a href="#proces" className="hover:text-[#005088] transition">O nás</a>
             <a href="#kontakt" className="hover:text-[#005088] transition">Kontakt</a>
           </div>
-          <a href="#kontakt" className="hidden sm:inline-block bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white px-8 py-3 text-[11px] font-bold uppercase tracking-widest rounded-xl hover:shadow-xl hover:shadow-orange-500/25 hover:scale-105 transition-all duration-300">
-            Cenová Ponuka
-          </a>
+          <div className="flex items-center gap-4">
+            <a href="tel:+421903584020" className="hidden sm:flex items-center gap-2 text-[11px] font-bold text-slate-500 hover:text-[#005088] transition">
+              <Phone size={14} className="text-[#f97316]" />
+              +421 903 584 020
+            </a>
+            <a href="#kontakt" className="hidden sm:inline-block bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white px-8 py-3 text-[11px] font-bold uppercase tracking-widest rounded-xl hover:shadow-xl hover:shadow-orange-500/25 hover:scale-105 transition-all duration-300">
+              Cenová Ponuka
+            </a>
+          </div>
           <button className="lg:hidden text-slate-900" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -122,6 +128,9 @@ export default function HomePage() {
               <a href="#sluzby" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 hover:text-[#005088]">Služby</a>
               <a href="#proces" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 hover:text-[#005088]">O nás</a>
               <a href="#kontakt" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 hover:text-[#005088]">Kontakt</a>
+              <a href="tel:+421903584020" onClick={() => setMobileOpen(false)} className="flex items-center gap-3 text-base font-bold py-2 text-[#005088]">
+                <Phone size={18} className="text-[#f97316]" /> +421 903 584 020
+              </a>
               <a href="#kontakt" onClick={() => setMobileOpen(false)} className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white text-center px-6 py-4 rounded-xl font-bold uppercase tracking-wider mt-2">
                 Cenová Ponuka
               </a>
