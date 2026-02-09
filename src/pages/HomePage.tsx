@@ -247,33 +247,35 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
-        {/* Gradient blobs */}
-        <div className="absolute top-20 right-20 w-[500px] h-[500px] bg-gradient-to-r from-[#005088]/20 to-[#0070b8]/10 rounded-full blur-3xl -z-10"></div>
-        <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-gradient-to-r from-[#f97316]/15 to-[#f59e0b]/10 rounded-full blur-3xl -z-10"></div>
-        <div className="absolute top-40 left-1/3 w-[300px] h-[300px] bg-gradient-to-r from-purple-500/10 to-pink-500/5 rounded-full blur-3xl -z-10"></div>
+      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-[#0a0e27]">
+        {/* Background image */}
+        <div className="absolute inset-0 z-0">
+          <img src="/images/services/hero-tlaciaren-splash-hd.jpg" alt="" className="w-full h-full object-cover object-bottom opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e27] via-[#0a0e27]/80 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e27] via-transparent to-[#0a0e27]/50"></div>
+        </div>
 
-        <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7">
             {/* Pill badge */}
-            <div className="inline-flex items-center gap-2 mb-8 bg-blue-50 dark:bg-slate-800/50 border border-blue-100 dark:border-slate-700 px-5 py-2 rounded-full">
+            <div className="inline-flex items-center gap-2 mb-8 bg-white/10 backdrop-blur-md border border-white/15 px-5 py-2 rounded-full">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#005088] dark:text-[#f97316]">🖨️ Od roku 2013 v Petržalke</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#f97316]">🖨️ Od roku 2013 v Petržalke</span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[1] tracking-tighter mb-8 text-slate-900 dark:text-white">
+            <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[1] tracking-tighter mb-8 text-white">
               MODERNÁ TLAČ <br />
-              <span className="text-[#005088]">PRE VÁŠ</span> <br />
+              <span className="text-[#4da8da]">PRE VÁŠ</span> <br />
               <span className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent italic">BIZNIS.</span>
             </h1>
-            <p className="text-slate-500 dark:text-slate-400 text-lg md:text-xl max-w-xl mb-12 font-light leading-relaxed italic border-l-4 border-gradient-to-b border-[#005088] dark:border-[#f97316] pl-6">
+            <p className="text-white/60 text-lg md:text-xl max-w-xl mb-12 font-light leading-relaxed italic border-l-4 border-[#f97316] pl-6">
               Váš partner v Petržalke od roku 2013. Prinášame komplexné riešenia od 1 kusu po tisícové série.
             </p>
             <div className="flex flex-wrap gap-6">
-              <a href="#sluzby" className="bg-gradient-to-r from-[#005088] to-[#0070b8] text-white px-10 py-5 font-black uppercase text-xs tracking-[0.2em] flex items-center gap-4 hover:shadow-xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300 rounded-2xl">
+              <a href="#sluzby" className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white px-10 py-5 font-black uppercase text-xs tracking-[0.2em] flex items-center gap-4 hover:shadow-xl hover:shadow-orange-500/25 hover:scale-105 transition-all duration-300 rounded-2xl">
                 Naše Služby <ArrowRight size={18} />
               </a>
-              <div className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">
+              <div className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-white/40">
                 <span className="text-2xl italic font-black tracking-normal bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent">11+</span> rokov skúseností
               </div>
             </div>
@@ -301,24 +303,24 @@ export default function HomePage() {
                   }}
                 >
                   {/* Speech bubble */}
-                  <div className="relative bg-white/80 dark:bg-white/10 backdrop-blur-md border border-slate-200 dark:border-white/15 rounded-2xl p-4 max-w-[280px] shadow-xl shadow-slate-200/50 dark:shadow-black/20 hover:bg-white dark:hover:bg-white/15 hover:scale-105 transition-all duration-300">
+                  <div className="relative bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 max-w-[280px] shadow-xl shadow-black/20 hover:bg-white/15 hover:scale-105 transition-all duration-300">
                     <div className="flex gap-1 mb-2">
                       {Array.from({ length: t.rating }).map((_, j) => (
                         <Star key={j} size={10} className="fill-[#f97316] text-[#f97316]" />
                       ))}
                     </div>
-                    <p className="text-slate-600 dark:text-white/80 text-xs leading-relaxed">"{t.text}"</p>
+                    <p className="text-white/80 text-xs leading-relaxed">"{t.text}"</p>
                     {/* Bubble tail */}
-                    <div className="absolute -bottom-2 left-6 w-4 h-4 bg-white/80 dark:bg-white/10 border-b border-r border-slate-200 dark:border-white/15 transform rotate-45"></div>
+                    <div className="absolute -bottom-2 left-6 w-4 h-4 bg-white/10 border-b border-r border-white/15 transform rotate-45"></div>
                   </div>
                   {/* Avatar */}
                   <div className="flex items-center gap-2 mt-4 ml-2">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#f97316] to-[#f59e0b] flex items-center justify-center text-white font-black text-sm shadow-lg shadow-orange-500/30 ring-2 ring-white dark:ring-white/20">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#f97316] to-[#f59e0b] flex items-center justify-center text-white font-black text-sm shadow-lg shadow-orange-500/30 ring-2 ring-white/20">
                       {t.name.charAt(0)}
                     </div>
                     <div>
-                      <div className="text-slate-900 dark:text-white font-bold text-xs">{t.name}</div>
-                      <div className="text-slate-400 dark:text-white/40 text-[10px]">{t.role}</div>
+                      <div className="text-white font-bold text-xs">{t.name}</div>
+                      <div className="text-white/40 text-[10px]">{t.role}</div>
                     </div>
                   </div>
                 </div>
