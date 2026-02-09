@@ -196,9 +196,8 @@ export default function HomePage() {
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/80 dark:bg-[#0f1129]/90 backdrop-blur-xl shadow-lg shadow-slate-200/50 dark:shadow-slate-900/50 py-3' : 'bg-transparent py-6'}`}>
         <div className="max-w-[1400px] mx-auto px-6 flex justify-between items-center">
-          <div className="flex items-center gap-2 group cursor-pointer">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#005088] to-[#0070b8] text-white flex items-center justify-center font-black text-xl rounded-xl group-hover:from-[#f97316] group-hover:to-[#f59e0b] transition-all duration-300 shadow-lg shadow-blue-500/20">P</div>
-            <span className="text-2xl font-black uppercase tracking-tighter text-slate-900 dark:text-white">Printroom</span>
+          <div className="flex items-center group cursor-pointer">
+            <img src="/images/logo-white.png" alt="Print room" className={`h-10 w-auto group-hover:scale-105 transition-all duration-300 ${isScrolled ? 'invert dark:invert-0' : ''}`} />
           </div>
           <div className="hidden lg:flex items-center gap-12 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
             <a href="#" className="hover:text-[#005088] dark:hover:text-[#f97316] transition">Domov</a>
