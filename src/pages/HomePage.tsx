@@ -5,14 +5,6 @@ import {
   ArrowRight, CheckCircle2, Mail, Phone, MapPin, ChevronRight, Star, Gift, Box, Instagram, Facebook, Menu, X,
   Sun, Moon
 } from 'lucide-react';
-import {
-  Chart as ChartJS, CategoryScale, LinearScale, BarElement,
-  Title, Tooltip, Legend,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
-
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
-
 const services = [
   { title: 'Potlač Textilu', icon: <Shirt size={32} />, desc: 'Tričká, mikiny, čiapky, pracovné odevy. Sieťotlač aj DTG.', size: 'large', img: '/images/services/potlac-textilu.jpg', slug: 'potlac-textilu' },
   { title: 'Reklamné Predmety', icon: <Gift size={32} />, desc: 'Perá, hrnčeky, tašky, zápisníky s vašim logom.', size: 'small', img: '/images/services/firemne-darceky.jpg', slug: 'reklamne-predmety' },
@@ -22,18 +14,6 @@ const services = [
   { title: 'Polepy', icon: <Car size={32} />, desc: 'Polepy áut, výkladov, interiérov. Návrh aj realizácia.', size: 'small', img: '/images/services/polepy.jpg', slug: 'polepy' },
   { title: 'Vyšívanie na Textil', icon: <Printer size={32} />, desc: 'Luxusná aplikácia loga vyšívaním na textil.', size: 'small', img: '/images/services/potlac-alt.jpg', slug: 'potlac-textilu' },
 ];
-
-const chartData = {
-  labels: ['Textil', 'Reklama', '3D', 'Bannery', 'Polygrafia', 'Polepy', 'Výšivka'],
-  datasets: [
-    {
-      label: 'Kapacita',
-      data: [95, 85, 80, 90, 100, 75, 85],
-      backgroundColor: 'rgba(0, 80, 136, 0.8)',
-      borderRadius: 8,
-    },
-  ],
-};
 
 const testimonials = [
   { name: 'Martin K.', role: 'Marketingový manažér', text: 'Spolupráca s Printroom bola bezproblémová. Tričká pre celý tím do 3 dní, perfektná kvalita.', rating: 5 },
@@ -436,24 +416,32 @@ export default function HomePage() {
         <div className="max-w-[1400px] mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="bg-white/5 backdrop-blur-xl p-10 md:p-16 border border-white/10 rounded-2xl">
-              <h4 className="text-center font-bold uppercase text-[10px] tracking-[0.4em] mb-12 bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent">Aktuálna produkčná kapacita</h4>
-              <div className="h-[300px]">
-                <Bar
-                  data={chartData}
-                  options={{
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                      y: { display: false },
-                      x: {
-                        grid: { display: false },
-                        ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9, weight: 'bold' } },
-                      },
-                    },
-                  }}
-                />
+              <h4 className="text-center font-bold uppercase text-[10px] tracking-[0.4em] mb-10 bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent">Aktuálna produkčná kapacita</h4>
+              <div className="space-y-5">
+                {[
+                  { label: 'Textil', value: 95, color: 'from-[#f97316] to-[#f59e0b]' },
+                  { label: 'Reklama', value: 85, color: 'from-[#005088] to-[#0070b8]' },
+                  { label: '3D', value: 80, color: 'from-[#8b5cf6] to-[#a78bfa]' },
+                  { label: 'Bannery', value: 90, color: 'from-[#f97316] to-[#ef4444]' },
+                  { label: 'Polygrafia', value: 100, color: 'from-[#005088] to-[#00a8e8]' },
+                  { label: 'Polepy', value: 75, color: 'from-[#10b981] to-[#34d399]' },
+                  { label: 'Výšivka', value: 85, color: 'from-[#f97316] to-[#f59e0b]' },
+                ].map((item, i) => (
+                  <div key={i} className="group">
+                    <div className="flex justify-between mb-1.5">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-white/60 group-hover:text-white transition-colors">{item.label}</span>
+                      <span className="text-[10px] font-black text-white/80">{item.value}%</span>
+                    </div>
+                    <div className="h-3 bg-white/5 rounded-full overflow-hidden">
+                      <div
+                        className={`h-full bg-gradient-to-r ${item.color} rounded-full group-hover:shadow-lg group-hover:shadow-orange-500/20 transition-all duration-700`}
+                        style={{ width: `${item.value}%`, animation: `growBar 1.5s ease-out ${i * 0.1}s both` }}
+                      ></div>
+                    </div>
+                  </div>
+                ))}
               </div>
+              <style>{`@keyframes growBar { from { width: 0% } }`}</style>
             </div>
             <div>
               <h2 className="text-5xl md:text-6xl font-black uppercase italic mb-8">
