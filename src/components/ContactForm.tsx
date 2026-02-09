@@ -24,22 +24,23 @@ export default function ContactForm() {
 
   const onSubmit = async (data: FormData) => {
     setError(false);
-    const formData = new FormData();
-    formData.append('access_key', 'ae057aa6-cd19-422e-90b2-f9895d6ed069');
-    formData.append('subject', `Nový dopyt z webu printroom.sk: ${data.service || 'Všeobecný'}`);
-    formData.append('from_name', 'Printroom Web');
-    formData.append('template_title', 'Nový dopyt z webstránky');
-    formData.append('template_message', 'Niekto vyplnil kontaktný formulár na vašej webstránke. Detaily nižšie.');
-    formData.append('Meno', data.name);
-    formData.append('Email', data.email);
-    formData.append('Telefon', data.phone || '-');
-    formData.append('Sluzba', data.service || '-');
-    formData.append('Sprava', data.message);
-    // Honeypot
-    formData.append('botcheck', '');
+    const payload = {
+      access_key: 'ae057aa6-cd19-422e-90b2-f9895d6ed069',
+      subject: `Nový dopyt z webu printroom.sk: ${data.service || 'Všeobecný'}`,
+      from_name: 'Printroom Web',
+      'Meno': data.name,
+      'Email': data.email,
+      'Telefón': data.phone || '-',
+      'Služba': data.service || '-',
+      'Správa': data.message,
+    };
 
     try {
-      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
       const result = await res.json();
       if (result.success) { setSubmitted(true); reset(); }
       else setError(true);

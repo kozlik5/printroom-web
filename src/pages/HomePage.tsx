@@ -89,12 +89,22 @@ function HomeContactForm() {
     e.preventDefault();
     setStatus('sending');
     const form = e.currentTarget;
-    const formData = new FormData(form);
-    formData.append('access_key', 'ae057aa6-cd19-422e-90b2-f9895d6ed069');
-    formData.append('subject', 'Nový dopyt z webu printroom.sk');
-    formData.append('from_name', 'Printroom Web');
+    const fd = new FormData(form);
+    const payload = {
+      access_key: 'ae057aa6-cd19-422e-90b2-f9895d6ed069',
+      subject: 'Nový dopyt z webu printroom.sk',
+      from_name: 'Printroom Web',
+      'Meno': fd.get('Meno') || '',
+      'Email': fd.get('Email') || '',
+      'Telefón': fd.get('Telefon') || '',
+      'Správa': fd.get('Sprava') || '',
+    };
     try {
-      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
       const data = await res.json();
       if (data.success) { setStatus('success'); form.reset(); }
       else setStatus('error');
