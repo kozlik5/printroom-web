@@ -219,7 +219,7 @@ export default function HomePageDark() {
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-[#0f1129]">
         {/* Background banner image */}
         <img
-          src="/images/services/hero-printroom-notext.jpg"
+          src="/images/services/hero-tlaciaren-splash-hd.jpg"
           alt=""
           className="absolute inset-0 w-full h-full object-cover opacity-40"
         />
