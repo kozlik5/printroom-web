@@ -38,6 +38,7 @@ const testimonials = [
   { name: 'Martin K.', role: 'Marketingový manažér', text: 'Spolupráca s Printroom bola bezproblémová. Tričká pre celý tím do 3 dní, perfektná kvalita.', rating: 5 },
   { name: 'Jana S.', role: 'Koordinátorka eventov', text: 'Bannery na konferenciu zvládli za 24 hodín. Farby presné, materiál odolný. Odporúčam.', rating: 5 },
   { name: 'Peter D.', role: 'Majiteľ e-shopu', text: 'Vizitky a katalógy vyzerajú prémiovo. Konečne dodávateľ, na ktorého sa môžeme spoľahnúť.', rating: 5 },
+  { name: 'Lucia M.', role: 'Grafická dizajnérka', text: 'Rýchla komunikácia a výsledok presne podľa návrhu. Polepy na autá vyzerajú fantasticky.', rating: 5 },
 ];
 
 /* Animated counter hook */
@@ -258,8 +259,9 @@ export default function HomePageDark() {
             {testimonials.map((t, i) => {
               const positions = [
                 { top: '0%', left: '10%', rotate: '-2deg', delay: '0s' },
-                { top: '35%', left: '45%', rotate: '1.5deg', delay: '0.5s' },
-                { top: '65%', left: '5%', rotate: '-1deg', delay: '1s' },
+                { top: '28%', left: '50%', rotate: '1.5deg', delay: '0.5s' },
+                { top: '55%', left: '0%', rotate: '-1deg', delay: '1s' },
+                { top: '75%', left: '40%', rotate: '2deg', delay: '1.5s' },
               ];
               const pos = positions[i];
               return (
