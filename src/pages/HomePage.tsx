@@ -462,38 +462,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-24 bg-gradient-to-b from-white dark:from-[#0f1129] to-slate-50 dark:to-[#1a1d3a]">
-        <div className="max-w-[1400px] mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter italic text-slate-900 dark:text-white">
-              Čo hovoria <span className="bg-gradient-to-r from-[#005088] to-[#0070b8] bg-clip-text text-transparent">klienti.</span>
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((t, i) => (
-              <div key={i} className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-lg rounded-2xl p-8 border border-slate-100 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.rating }).map((_, j) => (
-                    <Star key={j} size={16} className="fill-[#f97316] text-[#f97316]" />
-                  ))}
-                </div>
-                <p className="text-slate-600 dark:text-slate-300 italic font-light mb-6 leading-relaxed">"{t.text}"</p>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#005088] to-[#0070b8] flex items-center justify-center text-white font-black text-sm">
-                    {t.name[0]}
-                  </div>
-                  <div>
-                    <div className="font-black text-sm text-slate-900 dark:text-white">{t.name}</div>
-                    <div className="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-widest">{t.role}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
       <section id="kontakt" className="py-32 bg-white dark:bg-[#0f1129] relative">
         <div className="max-w-[1400px] mx-auto px-6">
