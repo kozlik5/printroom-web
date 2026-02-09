@@ -220,9 +220,9 @@ export default function HomePageDark() {
         {/* Main Hero Banner */}
         <div className="relative h-screen min-h-[600px] max-h-[800px]">
           <img
-            src="/images/services/hero-printroom-original.jpg"
-            alt="Printroom originál - potlač textilu"
-            className="absolute inset-0 w-full h-full object-cover"
+            src="/images/services/hero-tlaciaren-splash.jpg"
+            alt="Veľkoformátová tlačiareň s farebnými splash efektmi"
+            className="absolute inset-0 w-full h-full object-cover object-left-bottom"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0f1129]/60 via-[#0f1129]/40 to-[#0f1129]/80"></div>
           
@@ -293,6 +293,16 @@ export default function HomePageDark() {
           </div>
         </div>
       </section>
+
+      {/* Third Banner - Potlač textilu banner */}
+      <div className="relative h-[300px] md:h-[400px] overflow-hidden">
+        <img
+          src="/images/services/hero-printroom-original.jpg"
+          alt="Potlač textilu od 1 kusu"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0c22] via-[#0f1129]/30 to-[#0f1129]/60"></div>
+      </div>
 
       {/* Bento Services Section */}
       <section id="sluzby" className="py-24 md:py-32 bg-gradient-to-b from-[#0f1129] to-[#0a0c22] relative overflow-hidden">
