@@ -82,6 +82,69 @@ function AnimatedStat({ end, suffix, label }: { end: number; suffix: string; lab
   );
 }
 
+function HomeContactForm() {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('sending');
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    formData.append('access_key', 'ae057aa6-cd19-422e-90b2-f9895d6ed069');
+    formData.append('subject', 'Nový dopyt z printroom-web.pages.dev');
+    formData.append('from_name', 'Printroom Web');
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+      const data = await res.json();
+      if (data.success) { setStatus('success'); form.reset(); }
+      else setStatus('error');
+    } catch { setStatus('error'); }
+  };
+
+  if (status === 'success') {
+    return (
+      <div className="text-center py-12">
+        <CheckCircle2 size={48} className="text-green-500 mx-auto mb-4" />
+        <h3 className="text-2xl font-black uppercase mb-2">Ďakujeme!</h3>
+        <p className="text-slate-500">Ozveme sa vám do 24 hodín.</p>
+        <button onClick={() => setStatus('idle')} className="mt-6 text-[#005088] font-bold text-sm uppercase tracking-wider hover:text-[#f97316] transition">Poslať ďalší dopyt</button>
+      </div>
+    );
+  }
+
+  return (
+    <form className="space-y-8" onSubmit={onSubmit}>
+      {/* Honeypot anti-spam */}
+      <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+      <div className="space-y-3">
+        <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">Vaše Meno</label>
+        <input type="text" name="name" required className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="Jozef Mrkvička" />
+      </div>
+      <div className="space-y-3">
+        <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">Email</label>
+        <input type="email" name="email" required className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="vas@email.sk" />
+      </div>
+      <div className="space-y-3">
+        <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">Telefón</label>
+        <input type="tel" name="phone" className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="+421 ..." />
+      </div>
+      <div className="space-y-3">
+        <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">Vaša Požiadavka</label>
+        <textarea name="message" rows={4} required className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="Povedzte nám o vašich plánoch..."></textarea>
+      </div>
+      <label className="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" required className="mt-1 accent-[#f97316]" />
+        <span className="text-xs text-slate-500">Súhlasím so spracovaním osobných údajov podľa <a href="/gdpr" className="text-[#005088] underline">Zásad ochrany osobných údajov</a></span>
+      </label>
+      {status === 'error' && <p className="text-red-500 text-sm font-bold">Nastala chyba. Skúste znova alebo nás kontaktujte telefonicky.</p>}
+      <button disabled={status === 'sending'} className="w-full bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white py-6 font-black uppercase text-xs tracking-[0.3em] hover:shadow-xl hover:shadow-orange-500/25 hover:scale-[1.02] transition-all duration-300 rounded-xl group flex items-center justify-center gap-4 disabled:opacity-50">
+        {status === 'sending' ? 'Odosielam...' : 'Odoslať dopyt'}
+        <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
+      </button>
+    </form>
+  );
+}
+
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -413,20 +476,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="lg:w-1/2 bg-slate-50 p-12 md:p-20">
-              <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
-                <div className="space-y-3">
-                  <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">Vaše Meno</label>
-                  <input type="text" className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="Jozef Mrkvička" />
-                </div>
-                <div className="space-y-3">
-                  <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">Vaša Požiadavka</label>
-                  <textarea rows={5} className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="Povedzte nám o vašich plánoch..."></textarea>
-                </div>
-                <button className="w-full bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white py-6 font-black uppercase text-xs tracking-[0.3em] hover:shadow-xl hover:shadow-orange-500/25 hover:scale-[1.02] transition-all duration-300 rounded-xl group flex items-center justify-center gap-4">
-                  Odoslať dopyt
-                  <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
-                </button>
-              </form>
+              <HomeContactForm />
             </div>
           </div>
         </div>

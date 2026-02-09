@@ -14,15 +14,34 @@ interface FormData {
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
+    reset,
   } = useForm<FormData>();
 
-  const onSubmit = async (_data: FormData) => {
-    await new Promise((r) => setTimeout(r, 800));
-    setSubmitted(true);
+  const onSubmit = async (data: FormData) => {
+    setError(false);
+    const formData = new FormData();
+    formData.append('access_key', 'ae057aa6-cd19-422e-90b2-f9895d6ed069');
+    formData.append('subject', `Dopyt z printroom-web: ${data.service || 'Všeobecný'}`);
+    formData.append('from_name', 'Printroom Web');
+    formData.append('name', data.name);
+    formData.append('email', data.email);
+    formData.append('phone', data.phone || '-');
+    formData.append('service', data.service || '-');
+    formData.append('message', data.message);
+    // Honeypot
+    formData.append('botcheck', '');
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+      const result = await res.json();
+      if (result.success) { setSubmitted(true); reset(); }
+      else setError(true);
+    } catch { setError(true); }
   };
 
   if (submitted) {
@@ -31,6 +50,7 @@ export default function ContactForm() {
         <CheckCircle className="mx-auto text-green-500 mb-4" size={48} />
         <h3 className="text-xl font-bold text-green-800 mb-2">Ďakujeme!</h3>
         <p className="text-green-700">Ozveme sa vám do 24 hodín.</p>
+        <button onClick={() => setSubmitted(false)} className="mt-4 text-sm text-primary font-bold underline">Poslať ďalší dopyt</button>
       </div>
     );
   }
@@ -41,6 +61,9 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      {/* Honeypot */}
+      <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+
       <div>
         <input
           {...register('name', { required: 'Meno je povinné' })}
@@ -84,6 +107,7 @@ export default function ContactForm() {
           <option>Tlač a polygrafia</option>
           <option>Veľkoformát</option>
           <option>Polepy</option>
+          <option>Vyšívanie</option>
           <option>Iné</option>
         </select>
       </div>
@@ -112,6 +136,8 @@ export default function ContactForm() {
         </label>
         {errors.gdpr && <p className={errorCls}>{errors.gdpr.message}</p>}
       </div>
+
+      {error && <p className="text-red-500 text-sm font-bold">Nastala chyba. Skúste znova alebo nás kontaktujte telefonicky.</p>}
 
       <button
         type="submit"
