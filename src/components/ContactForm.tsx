@@ -32,9 +32,9 @@ export default function ContactForm() {
     formData.append('template_message', 'Niekto vyplnil kontaktný formulár na vašej webstránke. Detaily nižšie.');
     formData.append('Meno', data.name);
     formData.append('Email', data.email);
-    formData.append('Telefón', data.phone || '-');
-    formData.append('Služba', data.service || '-');
-    formData.append('Správa', data.message);
+    formData.append('Telefon', data.phone || '-');
+    formData.append('Sluzba', data.service || '-');
+    formData.append('Sprava', data.message);
     // Honeypot
     formData.append('botcheck', '');
 

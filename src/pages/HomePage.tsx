@@ -126,11 +126,11 @@ function HomeContactForm() {
       </div>
       <div className="space-y-3">
         <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">Telefón</label>
-        <input type="tel" name="Telefón" className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="+421 ..." />
+        <input type="tel" name="Telefon" className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="+421 ..." />
       </div>
       <div className="space-y-3">
         <label className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">Vaša Požiadavka</label>
-        <textarea name="Správa" rows={4} required className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="Povedzte nám o vašich plánoch..."></textarea>
+        <textarea name="Sprava" rows={4} required className="w-full bg-white border border-slate-200 p-5 text-slate-900 outline-none focus:border-[#f97316] focus:ring-4 focus:ring-orange-100 transition rounded-xl" placeholder="Povedzte nám o vašich plánoch..."></textarea>
       </div>
       <label className="flex items-start gap-3 cursor-pointer">
         <input type="checkbox" required className="mt-1 accent-[#f97316]" />
