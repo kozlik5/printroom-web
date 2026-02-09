@@ -215,76 +215,56 @@ export default function HomePageDark() {
         )}
       </nav>
 
-      {/* Hero Section with Full-Width Banner */}
-      <section className="relative overflow-hidden">
-        {/* Main Hero Banner */}
-        <div className="relative h-screen min-h-[600px] max-h-[800px]">
-          <img
-            src="/images/services/hero-tlaciaren-splash-hd.jpg"
-            alt="Veľkoformátová tlačiareň s farebnými splash efektmi"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0f1129]/60 via-[#0f1129]/40 to-[#0f1129]/80"></div>
-          
-          {/* Decorative concentric circles */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-            <div className="w-[800px] h-[800px] rounded-full border border-white/5 absolute"></div>
-            <div className="w-[600px] h-[600px] rounded-full border border-white/10 absolute top-[100px] left-[100px]"></div>
-            <div className="w-[400px] h-[400px] rounded-full border border-orange-500/20 absolute top-[200px] left-[200px]"></div>
-          </div>
-          
-          {/* Glow effects */}
-          <div className="absolute top-20 right-20 w-[400px] h-[400px] bg-gradient-to-r from-[#f97316]/30 to-[#f59e0b]/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-20 w-[500px] h-[500px] bg-gradient-to-r from-purple-500/20 to-pink-500/15 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/2 w-[300px] h-[300px] bg-gradient-to-r from-rose-500/15 to-orange-500/20 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-[#0f1129]">
+        {/* Gradient blobs */}
+        <div className="absolute top-20 right-20 w-[500px] h-[500px] bg-gradient-to-r from-[#f97316]/20 to-[#f59e0b]/10 rounded-full blur-3xl -z-10"></div>
+        <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-gradient-to-r from-purple-500/15 to-pink-500/10 rounded-full blur-3xl -z-10"></div>
+        <div className="absolute top-40 left-1/3 w-[300px] h-[300px] bg-gradient-to-r from-blue-500/10 to-cyan-500/5 rounded-full blur-3xl -z-10"></div>
 
-          <div className="relative z-10 h-full flex items-center px-6">
-            <div className="max-w-[1400px] mx-auto w-full">
-              <div className="max-w-2xl">
-                {/* Pill badge */}
-                <div className="inline-flex items-center gap-2 mb-8 bg-black/30 backdrop-blur-sm border border-white/20 px-6 py-3 rounded-full">
-                  <span className="w-2 h-2 bg-[#f97316] rounded-full animate-pulse"></span>
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white">🖨️ Od roku 2013 v Petržalke</span>
-                </div>
+        <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-7">
+            {/* Pill badge */}
+            <div className="inline-flex items-center gap-2 mb-8 bg-white/5 border border-white/10 px-5 py-2 rounded-full">
+              <span className="w-2 h-2 bg-[#f97316] rounded-full animate-pulse"></span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#f97316]">🖨️ Od roku 2013 v Petržalke</span>
+            </div>
 
-                <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[0.95] tracking-tighter mb-8 text-white uppercase">
-                  DO TLAČE<br />
-                  <span className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent">S NAMI</span>
-                </h1>
-                
-                <p className="text-white/60 text-lg md:text-xl max-w-lg mb-12 font-light leading-relaxed border-l-2 border-[#f97316] pl-6">
-                  Komplexné tlačové riešenia od 1 kusu po tisícové série. Potlač textilu, veľkoformát, 3D tlač a ďalšie.
-                </p>
-                
-                <div className="flex flex-wrap gap-5">
-                  <a href="#sluzby" className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white px-10 py-5 font-black uppercase text-xs tracking-[0.2em] flex items-center gap-4 hover:shadow-xl hover:shadow-orange-500/30 hover:scale-105 transition-all duration-300 rounded-2xl">
-                    Naše Služby <ArrowRight size={18} />
-                  </a>
-                  <a href="#kontakt" className="border-2 border-white/20 text-white px-10 py-5 font-black uppercase text-xs tracking-[0.2em] flex items-center gap-4 hover:border-white/40 hover:bg-white/5 transition-all duration-300 rounded-2xl">
-                    Cenová Ponuka
-                  </a>
-                </div>
-
-                {/* Stats row */}
-                <div className="flex gap-10 mt-14 pt-8 border-t border-white/10">
-                  <div>
-                    <div className="text-3xl font-black text-white">5000<span className="text-[#f97316]">+</span></div>
-                    <div className="text-[10px] uppercase tracking-widest text-white/40 font-bold mt-1">Zákaziek</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-black text-white">11<span className="text-[#f97316]">+</span></div>
-                    <div className="text-[10px] uppercase tracking-widest text-white/40 font-bold mt-1">Rokov</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-black text-white">24<span className="text-[#f97316]">h</span></div>
-                    <div className="text-[10px] uppercase tracking-widest text-white/40 font-bold mt-1">Express</div>
-                  </div>
-                </div>
+            <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[1] tracking-tighter mb-8 text-white">
+              MODERNÁ TLAČ <br />
+              <span className="text-white/70">PRE VÁŠ</span> <br />
+              <span className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent italic">BIZNIS.</span>
+            </h1>
+            <p className="text-white/50 text-lg md:text-xl max-w-xl mb-12 font-light leading-relaxed italic border-l-4 border-[#f97316] pl-6">
+              Váš partner v Petržalke od roku 2013. Prinášame komplexné riešenia od 1 kusu po tisícové série.
+            </p>
+            <div className="flex flex-wrap gap-6">
+              <a href="#sluzby" className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white px-10 py-5 font-black uppercase text-xs tracking-[0.2em] flex items-center gap-4 hover:shadow-xl hover:shadow-orange-500/25 hover:scale-105 transition-all duration-300 rounded-2xl">
+                Naše Služby <ArrowRight size={18} />
+              </a>
+              <div className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-white/40">
+                <span className="text-2xl italic font-black tracking-normal bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent">11+</span> rokov skúseností
               </div>
             </div>
           </div>
+          <div className="lg:col-span-5 relative mt-12 lg:mt-0">
+            <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-black/50 relative group border-4 border-white/10">
+              <img
+                src="/images/services/hero-tlaciaren-splash-hd.jpg"
+                alt="Veľkoformátová tlačiareň s farebnými splash efektmi"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+              />
+              <div className="absolute bottom-6 right-6 bg-black/60 backdrop-blur-xl text-white p-6 rounded-2xl shadow-xl border border-white/10">
+                <CheckCircle2 className="text-[#f97316] mb-3" size={32} />
+                <div className="text-xl font-black">99.8%</div>
+                <div className="text-[8px] font-bold uppercase tracking-widest text-white/50">Spokojnosť klientov</div>
+              </div>
+            </div>
+            {/* Floating accent element */}
+            <div className="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-br from-[#f97316] to-[#f59e0b] rounded-2xl rotate-12 opacity-80 blur-sm -z-10"></div>
+            <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl -rotate-12 opacity-60 blur-sm -z-10"></div>
+          </div>
         </div>
-
       </section>
 
       {/* Bento Services Section */}
