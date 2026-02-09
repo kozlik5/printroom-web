@@ -17,19 +17,28 @@ function ScrollToTop() {
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <>
       <ScrollToTop />
-      <Header />
-      <main className="flex-1">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/sluzby" element={<SluzbyPage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/kontakt" element={<KontaktPage />} />
-        </Routes>
-      </main>
-      <Footer />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="*"
+          element={
+            <div className="min-h-screen flex flex-col">
+              <Header />
+              <main className="flex-1">
+                <Routes>
+                  <Route path="/sluzby" element={<SluzbyPage />} />
+                  <Route path="/portfolio" element={<PortfolioPage />} />
+                  <Route path="/kontakt" element={<KontaktPage />} />
+                </Routes>
+              </main>
+              <Footer />
+            </div>
+          }
+        />
+      </Routes>
       <CookieConsent />
-    </div>
+    </>
   );
 }
