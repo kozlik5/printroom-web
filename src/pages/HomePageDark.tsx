@@ -257,11 +257,11 @@ export default function HomePageDark() {
           <div className="lg:col-span-5 relative mt-12 lg:mt-0 min-h-[500px] hidden lg:block">
             {/* Floating testimonial bubbles */}
             {testimonials.map((t, i) => {
+              if (i >= 3) return null;
               const positions = [
-                { top: '0%', left: '10%', rotate: '-2deg', delay: '0s' },
-                { top: '28%', left: '50%', rotate: '1.5deg', delay: '0.5s' },
-                { top: '55%', left: '0%', rotate: '-1deg', delay: '1s' },
-                { top: '75%', left: '40%', rotate: '2deg', delay: '1.5s' },
+                { top: '0%', left: '5%', rotate: '-2deg', delay: '0s' },
+                { top: '35%', left: '45%', rotate: '1.5deg', delay: '0.5s' },
+                { top: '68%', left: '5%', rotate: '-1deg', delay: '1s' },
               ];
               const pos = positions[i];
               return (
