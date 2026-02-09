@@ -297,9 +297,9 @@ export default function HomePageDark() {
       {/* Third Banner - Tlačiareň so splash efektom */}
       <div className="relative h-[300px] md:h-[400px] overflow-hidden">
         <img
-          src="/images/services/hero-tlaciaren-splash.jpg"
+          src="/images/services/hero-tlaciaren-splash-hd.jpg"
           alt="Veľkoformátová tlačiareň s farebnými splash efektmi"
-          className="absolute inset-0 w-full h-full object-cover object-left-bottom"
+          className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0c22] via-transparent to-[#0f1129]/40"></div>
       </div>
