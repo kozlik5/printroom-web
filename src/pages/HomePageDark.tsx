@@ -221,9 +221,9 @@ export default function HomePageDark() {
         <img
           src="/images/services/hero-tlaciaren-splash-hd.jpg"
           alt=""
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0f1129]/90 via-[#0f1129]/70 to-[#0f1129]/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0f1129]/80 via-[#0f1129]/50 to-transparent"></div>
         {/* Gradient blobs */}
         <div className="absolute top-20 right-20 w-[500px] h-[500px] bg-gradient-to-r from-[#f97316]/15 to-[#f59e0b]/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-gradient-to-r from-purple-500/10 to-pink-500/5 rounded-full blur-3xl"></div>
@@ -236,12 +236,12 @@ export default function HomePageDark() {
               <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#f97316]">🖨️ Od roku 2013 v Petržalke</span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[1] tracking-tighter mb-8 text-white">
+            <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[1] tracking-tighter mb-8 text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
               MODERNÁ TLAČ <br />
-              <span className="text-white/70">PRE VÁŠ</span> <br />
+              <span className="text-white">PRE VÁŠ</span> <br />
               <span className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent italic">BIZNIS.</span>
             </h1>
-            <p className="text-white/50 text-lg md:text-xl max-w-xl mb-12 font-light leading-relaxed italic border-l-4 border-[#f97316] pl-6">
+            <p className="text-white/80 text-lg md:text-xl max-w-xl mb-12 font-light leading-relaxed italic border-l-4 border-[#f97316] pl-6 drop-shadow-[0_1px_5px_rgba(0,0,0,0.5)]">
               Váš partner v Petržalke od roku 2013. Prinášame komplexné riešenia od 1 kusu po tisícové série.
             </p>
             <div className="flex flex-wrap gap-6">
@@ -249,7 +249,7 @@ export default function HomePageDark() {
                 Naše Služby <ArrowRight size={18} />
               </a>
               <div className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-white/40">
-                <span className="text-2xl italic font-black tracking-normal bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent">11+</span> rokov skúseností
+                <span className="text-2xl italic font-black tracking-normal bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent">11+</span><span className="text-white/80"> rokov skúseností</span>
               </div>
             </div>
           </div>
