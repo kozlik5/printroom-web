@@ -165,20 +165,20 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-orange-100 selection:text-orange-900">
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/90 backdrop-blur-xl shadow-lg shadow-slate-200/50 py-3' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/80 backdrop-blur-xl shadow-lg shadow-slate-200/50 py-3' : 'bg-transparent py-6'}`}>
         <div className="max-w-[1400px] mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-2 group cursor-pointer">
             <div className="w-10 h-10 bg-gradient-to-br from-[#005088] to-[#0070b8] text-white flex items-center justify-center font-black text-xl rounded-xl group-hover:from-[#f97316] group-hover:to-[#f59e0b] transition-all duration-300 shadow-lg shadow-blue-500/20">P</div>
-            <span className={`text-2xl font-black uppercase tracking-tighter transition-colors duration-500 ${isScrolled ? 'text-slate-900' : 'text-white'}`}>Printroom</span>
+            <span className="text-2xl font-black uppercase tracking-tighter text-slate-900">Printroom</span>
           </div>
-          <div className={`hidden lg:flex items-center gap-12 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors duration-500 ${isScrolled ? 'text-slate-500' : 'text-white/70'}`}>
-            <a href="#" className={`transition ${isScrolled ? 'hover:text-[#005088]' : 'hover:text-white'}`}>Domov</a>
-            <a href="#sluzby" className={`transition ${isScrolled ? 'hover:text-[#005088]' : 'hover:text-white'}`}>Služby</a>
-            <a href="#proces" className={`transition ${isScrolled ? 'hover:text-[#005088]' : 'hover:text-white'}`}>O nás</a>
-            <a href="#kontakt" className={`transition ${isScrolled ? 'hover:text-[#005088]' : 'hover:text-white'}`}>Kontakt</a>
+          <div className="hidden lg:flex items-center gap-12 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500">
+            <a href="#" className="hover:text-[#005088] transition">Domov</a>
+            <a href="#sluzby" className="hover:text-[#005088] transition">Služby</a>
+            <a href="#proces" className="hover:text-[#005088] transition">O nás</a>
+            <a href="#kontakt" className="hover:text-[#005088] transition">Kontakt</a>
           </div>
           <div className="flex items-center gap-4">
-            <a href="tel:+421903584020" className={`flex items-center gap-2 text-[11px] font-bold transition-colors duration-500 ${isScrolled ? 'text-slate-500 hover:text-[#005088]' : 'text-white/70 hover:text-white'}`}>
+            <a href="tel:+421903584020" className="flex items-center gap-2 text-[11px] font-bold text-slate-500 hover:text-[#005088] transition">
               <Phone size={14} className="text-[#f97316]" />
               <span className="hidden sm:inline">+421 903 584 020</span>
               <span className="sm:hidden">Zavolať</span>
@@ -187,7 +187,7 @@ export default function HomePage() {
               Cenová Ponuka
             </a>
           </div>
-          <button className={`lg:hidden transition-colors duration-500 ${isScrolled ? 'text-slate-900' : 'text-white'}`} onClick={() => setMobileOpen(!mobileOpen)}>
+          <button className="lg:hidden text-slate-900" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
@@ -210,102 +210,56 @@ export default function HomePage() {
         )}
       </nav>
 
-      {/* Hero Section — Dark */}
-      <section className="relative pt-28 pb-16 md:pt-40 md:pb-28 overflow-hidden bg-[#0f1129]">
-        {/* Decorative elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          {/* Concentric circles */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-white/5 rounded-full"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/[0.03] rounded-full"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] border border-white/[0.02] rounded-full"></div>
-          {/* Colorful gradient blobs */}
-          <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-gradient-to-tr from-orange-500/30 via-pink-500/20 to-transparent rounded-full blur-3xl"></div>
-          <div className="absolute top-10 right-0 w-[350px] h-[350px] bg-gradient-to-bl from-blue-500/20 via-cyan-400/10 to-transparent rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 right-1/4 w-[250px] h-[250px] bg-gradient-to-t from-purple-500/15 to-transparent rounded-full blur-3xl"></div>
-          {/* Dot grid */}
-          <div className="absolute top-20 right-20 grid grid-cols-5 gap-3 opacity-20">
-            {Array.from({ length: 25 }).map((_, i) => <div key={i} className="w-1.5 h-1.5 bg-white/40 rounded-full"></div>)}
-          </div>
-          {/* Chevron arrows */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-3 opacity-10">
-            {Array.from({ length: 5 }).map((_, i) => <ChevronRight key={i} size={28} className="text-white/60" />)}
-          </div>
-        </div>
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        {/* Gradient blobs */}
+        <div className="absolute top-20 right-20 w-[500px] h-[500px] bg-gradient-to-r from-[#005088]/20 to-[#0070b8]/10 rounded-full blur-3xl -z-10"></div>
+        <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-gradient-to-r from-[#f97316]/15 to-[#f59e0b]/10 rounded-full blur-3xl -z-10"></div>
+        <div className="absolute top-40 left-1/3 w-[300px] h-[300px] bg-gradient-to-r from-purple-500/10 to-pink-500/5 rounded-full blur-3xl -z-10"></div>
 
-        <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left — Text */}
-            <div>
-              <div className="inline-flex items-center gap-2 mb-8 bg-white/5 border border-white/10 px-5 py-2 rounded-full backdrop-blur-sm">
-                <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">Od roku 2013 v Petržalke</span>
-              </div>
-
-              <h1 className="text-5xl md:text-7xl lg:text-[85px] font-black leading-[0.95] tracking-tighter mb-8 text-white uppercase">
-                DO TLAČE<br />
-                <span className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent">S NAMI</span>
-              </h1>
-
-              <p className="text-white/50 text-lg md:text-xl max-w-lg mb-12 font-light leading-relaxed border-l-2 border-[#f97316] pl-6">
-                Komplexné tlačové riešenia od 1 kusu po tisícové série. Potlač textilu, veľkoformát, 3D tlač a ďalšie.
-              </p>
-
-              <div className="flex flex-wrap gap-5 items-center">
-                <a href="#sluzby" className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white px-10 py-5 font-black uppercase text-xs tracking-[0.2em] flex items-center gap-4 hover:shadow-xl hover:shadow-orange-500/30 hover:scale-105 transition-all duration-300 rounded-2xl">
-                  Naše Služby <ArrowRight size={18} />
-                </a>
-                <a href="#kontakt" className="border-2 border-white/20 text-white px-10 py-5 font-black uppercase text-xs tracking-[0.2em] flex items-center gap-4 hover:border-white/40 hover:bg-white/5 transition-all duration-300 rounded-2xl">
-                  Cenová Ponuka
-                </a>
-              </div>
-
-              {/* Stats row */}
-              <div className="flex gap-10 mt-14 pt-8 border-t border-white/10">
-                <div>
-                  <div className="text-3xl font-black text-white">5000<span className="text-[#f97316]">+</span></div>
-                  <div className="text-[10px] uppercase tracking-widest text-white/40 font-bold mt-1">Zákaziek</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-black text-white">11<span className="text-[#f97316]">+</span></div>
-                  <div className="text-[10px] uppercase tracking-widest text-white/40 font-bold mt-1">Rokov</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-black text-white">24<span className="text-[#f97316]">h</span></div>
-                  <div className="text-[10px] uppercase tracking-widest text-white/40 font-bold mt-1">Express</div>
-                </div>
-              </div>
+        <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-7">
+            {/* Pill badge */}
+            <div className="inline-flex items-center gap-2 mb-8 bg-blue-50 border border-blue-100 px-5 py-2 rounded-full">
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#005088]">🖨️ Od roku 2013 v Petržalke</span>
             </div>
 
-            {/* Right — Image */}
-            <div className="relative mt-8 lg:mt-0">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/40 border border-white/10 group">
-                <img
-                  src="/images/services/hero-alt.jpg"
-                  alt="Veľkoformátová tlačiareň v akcii"
-                  className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-1000"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f1129]/60 via-transparent to-transparent"></div>
-                {/* Yellow accent line at bottom */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#f97316] to-[#f59e0b]"></div>
+            <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[1] tracking-tighter mb-8 text-slate-900">
+              MODERNÁ TLAČ <br />
+              <span className="text-[#005088]">PRE VÁŠ</span> <br />
+              <span className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent italic">BIZNIS.</span>
+            </h1>
+            <p className="text-slate-500 text-lg md:text-xl max-w-xl mb-12 font-light leading-relaxed italic border-l-4 border-gradient-to-b border-[#005088] pl-6">
+              Váš partner v Petržalke od roku 2013. Prinášame komplexné riešenia od 1 kusu po tisícové série.
+            </p>
+            <div className="flex flex-wrap gap-6">
+              <a href="#sluzby" className="bg-gradient-to-r from-[#005088] to-[#0070b8] text-white px-10 py-5 font-black uppercase text-xs tracking-[0.2em] flex items-center gap-4 hover:shadow-xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300 rounded-2xl">
+                Naše Služby <ArrowRight size={18} />
+              </a>
+              <div className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                <span className="text-2xl italic font-black tracking-normal bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent">11+</span> rokov skúseností
               </div>
-
-              {/* Floating badge */}
-              <div className="absolute -bottom-6 -left-6 bg-white/10 backdrop-blur-xl text-white p-5 rounded-2xl shadow-xl border border-white/10">
-                <CheckCircle2 className="text-[#f97316] mb-2" size={28} />
+            </div>
+          </div>
+          <div className="lg:col-span-5 relative mt-12 lg:mt-0">
+            <div className="aspect-[4/5] bg-slate-100 rounded-3xl overflow-hidden shadow-2xl shadow-slate-300/50 relative group border-8 border-white">
+              <img
+                src="/images/services/hero-alt.jpg"
+                alt="Potlačené tričká a nálepky"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+              />
+              <div className="absolute bottom-6 right-6 bg-white/80 backdrop-blur-xl text-slate-900 p-6 rounded-2xl shadow-xl border border-white/50">
+                <CheckCircle2 className="text-[#f97316] mb-3" size={32} />
                 <div className="text-xl font-black">99.8%</div>
-                <div className="text-[8px] font-bold uppercase tracking-widest text-white/50">Spokojnosť</div>
-              </div>
-
-              {/* Floating circles with service previews */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-[#f97316] to-[#f59e0b] rounded-full flex items-center justify-center shadow-lg shadow-orange-500/30">
-                <Printer size={28} className="text-white" />
+                <div className="text-[8px] font-bold uppercase tracking-widest text-slate-500">Spokojnosť klientov</div>
               </div>
             </div>
+            {/* Floating accent element */}
+            <div className="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-br from-[#f97316] to-[#f59e0b] rounded-2xl rotate-12 opacity-80 blur-sm -z-10"></div>
+            <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-gradient-to-br from-[#005088] to-[#0070b8] rounded-2xl -rotate-12 opacity-60 blur-sm -z-10"></div>
           </div>
         </div>
-
-        {/* Bottom gradient fade to white */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent"></div>
       </section>
 
       {/* Bento Services Section */}
