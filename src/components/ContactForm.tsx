@@ -25,15 +25,15 @@ export default function ContactForm() {
   const onSubmit = async (data: FormData) => {
     setError(false);
     const payload = {
-      access_key: 'ae057aa6-cd19-422e-90b2-f9895d6ed069',
-      subject: `Nový dopyt z webu printroom.sk: ${data.service || 'Všeobecný'}`,
-      from_name: 'Printroom Web',
-      replyto: data.email,
-      message: `Nový dopyt z webstránky printroom.sk\n\nMeno: ${data.name}\nEmail: ${data.email}\nTelefón: ${data.phone || '-'}\nSlužba: ${data.service || '-'}\nSpráva: ${data.message}`,
+      meno: data.name,
+      email: data.email,
+      telefon: data.phone || '',
+      sprava: data.message,
+      sluzba: data.service || '',
     };
 
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
