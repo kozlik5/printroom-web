@@ -42,14 +42,14 @@ export default function ServicePageLayout({
   return (
     <>
       {/* Breadcrumb */}
-      <div className="bg-slate-50 border-b border-slate-100 pt-20">
+      <div className="bg-slate-50 dark:bg-[#0f1129] border-b border-slate-100 dark:border-slate-800 pt-20">
         <div className="max-w-7xl mx-auto px-4 py-3">
-          <nav className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-slate-400">
-            <Link to="/" className="hover:text-[#005088] transition">Domov</Link>
+          <nav className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-slate-400 dark:text-slate-500">
+            <Link to="/" className="hover:text-[#005088] dark:hover:text-[#f97316] transition">Domov</Link>
             <ChevronRight size={12} />
-            <Link to="/sluzby" className="hover:text-[#005088] transition">Služby</Link>
+            <Link to="/sluzby" className="hover:text-[#005088] dark:hover:text-[#f97316] transition">Služby</Link>
             <ChevronRight size={12} />
-            <span className="text-slate-700">{breadcrumbName}</span>
+            <span className="text-slate-700 dark:text-white">{breadcrumbName}</span>
           </nav>
         </div>
       </div>
@@ -97,11 +97,11 @@ export default function ServicePageLayout({
       </section>
 
       {/* What we offer */}
-      <section className="py-20 bg-gradient-to-b from-white to-slate-50">
+      <section className="py-20 bg-gradient-to-b from-white to-slate-50 dark:from-[#0f1129] dark:to-[#1a1d3a]">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
-              <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-slate-900 mb-8">
+              <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-slate-900 dark:text-white mb-8">
                 Čo{' '}
                 <span className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent">
                   ponúkame
@@ -111,7 +111,7 @@ export default function ServicePageLayout({
                 {items.map((item) => (
                   <li key={item} className="flex items-start gap-4 group">
                     <div className="mt-1 w-3 h-3 rounded-full bg-gradient-to-r from-[#f97316] to-[#f59e0b] flex-shrink-0 group-hover:scale-125 transition-transform" />
-                    <span className="text-slate-700 text-lg font-medium">{item}</span>
+                    <span className="text-slate-700 dark:text-slate-300 text-lg font-medium">{item}</span>
                   </li>
                 ))}
               </ul>

@@ -14,8 +14,8 @@ export default function VopPage() {
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="max-w-3xl mx-auto px-4 prose prose-slate prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tighter">
+      <section className="py-20 dark:bg-[#0f1129]">
+        <div className="max-w-3xl mx-auto px-4 prose prose-slate dark:prose-invert prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tighter">
           <h2>1. Úvodné ustanovenia</h2>
           <p>
             Tieto Všeobecné obchodné podmienky (ďalej len „VOP") upravujú vzťahy medzi spoločnosťou

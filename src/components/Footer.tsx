@@ -8,9 +8,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 py-16 grid md:grid-cols-3 gap-12">
         {/* Col 1 */}
         <div>
-          <span className="text-2xl font-black uppercase tracking-tighter">
-            Print<span className="text-accent">Room</span>
-          </span>
+          <img src="/images/logo-white.png" alt="Print room" className="h-12 w-auto" />
           <p className="mt-4 text-slate-400 text-sm leading-relaxed">
             Profesionálna tlačiareň v Bratislave. Potlač, 3D tlač, reklamné predmety.
           </p>

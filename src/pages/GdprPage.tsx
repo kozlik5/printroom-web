@@ -14,8 +14,8 @@ export default function GdprPage() {
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="max-w-3xl mx-auto px-4 prose prose-slate prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tighter">
+      <section className="py-20 dark:bg-[#0f1129]">
+        <div className="max-w-3xl mx-auto px-4 prose prose-slate dark:prose-invert prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tighter">
           <h2>1. Prevádzkovateľ</h2>
           <p>
             <strong>Print room s. r. o.</strong><br />

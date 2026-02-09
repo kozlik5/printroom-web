@@ -40,7 +40,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Filter + Gallery */}
-      <section className="py-20 bg-light">
+      <section className="py-20 bg-light dark:bg-[#0f1129]">
         <div className="max-w-7xl mx-auto px-4">
           {/* Filters */}
           <div className="flex flex-wrap justify-center gap-2 mb-12">
@@ -51,7 +51,7 @@ export default function PortfolioPage() {
                 className={`px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider transition-colors ${
                   active === f
                     ? 'bg-primary text-white'
-                    : 'bg-white text-slate-600 hover:bg-slate-100'
+                    : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
                 }`}
               >
                 {f}

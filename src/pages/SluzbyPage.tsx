@@ -141,14 +141,14 @@ export default function SluzbyPage() {
               <div className="flex-1">
                 <div className="text-primary mb-4">{cat.icon}</div>
                 <Link to={`/sluzby/${cat.slug}`} className="hover:text-[#005088] transition-colors">
-                  <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-slate-900">
+                  <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-slate-900 dark:text-white">
                     {cat.title}
                   </h2>
                 </Link>
-                <p className="mt-4 text-slate-600 leading-relaxed">{cat.text}</p>
+                <p className="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed">{cat.text}</p>
                 <ul className="mt-6 space-y-2">
                   {cat.items.map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-sm text-slate-700">
+                    <li key={item} className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
                       <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
                       {item}
                     </li>
