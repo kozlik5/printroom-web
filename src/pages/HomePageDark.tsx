@@ -217,10 +217,16 @@ export default function HomePageDark() {
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-[#0f1129]">
+        {/* Background banner image */}
+        <img
+          src="/images/services/hero-printroom-notext.jpg"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0f1129]/90 via-[#0f1129]/70 to-[#0f1129]/40"></div>
         {/* Gradient blobs */}
-        <div className="absolute top-20 right-20 w-[500px] h-[500px] bg-gradient-to-r from-[#f97316]/20 to-[#f59e0b]/10 rounded-full blur-3xl -z-10"></div>
-        <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-gradient-to-r from-purple-500/15 to-pink-500/10 rounded-full blur-3xl -z-10"></div>
-        <div className="absolute top-40 left-1/3 w-[300px] h-[300px] bg-gradient-to-r from-blue-500/10 to-cyan-500/5 rounded-full blur-3xl -z-10"></div>
+        <div className="absolute top-20 right-20 w-[500px] h-[500px] bg-gradient-to-r from-[#f97316]/15 to-[#f59e0b]/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-gradient-to-r from-purple-500/10 to-pink-500/5 rounded-full blur-3xl"></div>
 
         <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7">
@@ -248,17 +254,12 @@ export default function HomePageDark() {
             </div>
           </div>
           <div className="lg:col-span-5 relative mt-12 lg:mt-0">
-            <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-black/50 relative group border-4 border-white/10">
+            <div className="rounded-3xl overflow-hidden shadow-2xl shadow-black/50 relative group border-4 border-white/10">
               <img
-                src="/images/services/hero-tlaciaren-splash-hd.jpg"
-                alt="Veľkoformátová tlačiareň s farebnými splash efektmi"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                src="/images/services/hero-potlac-textilu.jpg"
+                alt="Printroom služby - maloformátová tlač, veľkoformátová tlač, ofsetová tlač, potlač textilu, vyšívanie"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-1000"
               />
-              <div className="absolute bottom-6 right-6 bg-black/60 backdrop-blur-xl text-white p-6 rounded-2xl shadow-xl border border-white/10">
-                <CheckCircle2 className="text-[#f97316] mb-3" size={32} />
-                <div className="text-xl font-black">99.8%</div>
-                <div className="text-[8px] font-bold uppercase tracking-widest text-white/50">Spokojnosť klientov</div>
-              </div>
             </div>
             {/* Floating accent element */}
             <div className="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-br from-[#f97316] to-[#f59e0b] rounded-2xl rotate-12 opacity-80 blur-sm -z-10"></div>
