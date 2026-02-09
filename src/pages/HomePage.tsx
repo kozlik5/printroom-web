@@ -6,7 +6,7 @@ import {
   Sun, Moon
 } from 'lucide-react';
 const services = [
-  { title: 'Potlač Textilu', icon: <Shirt size={32} />, desc: 'Tričká, mikiny, čiapky, pracovné odevy. Sieťotlač aj DTG.', size: 'large', img: '/images/services/potlac-textilu.jpg', slug: 'potlac-textilu' },
+  { title: 'Potlač Textilu', icon: <Shirt size={32} />, desc: 'Tričká, mikiny, čiapky, pracovné odevy. Sieťotlač aj DTG.', size: 'large', img: '/images/services/potlac-textilu.jpg', slug: 'potlac-textilu', imgPos: 'right' as const },
   { title: 'Reklamné Predmety', icon: <Gift size={32} />, desc: 'Perá, hrnčeky, tašky, zápisníky s vašim logom.', size: 'small', img: '/images/services/firemne-darceky.jpg', slug: 'reklamne-predmety' },
   { title: '3D Služby', icon: <Box size={32} />, desc: '3D tlač, skenovanie a modelovanie. Prototypy aj hotové diely.', size: 'small', img: '/images/services/3d-sluzby.jpg', slug: '3d-sluzby' },
   { title: 'Bannery a Plagáty', icon: <Maximize size={32} />, desc: 'Veľkoformátová tlač, roll-upy, mesh. Express do 24h.', size: 'small', img: '/images/services/bannery-plagaty.jpg', slug: 'bannery-velkoformat' },
@@ -330,7 +330,7 @@ export default function HomePage() {
                 }`}
               >
                 {/* Background photo */}
-                <img src={service.img} alt={service.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src={service.img} alt={service.title} className={`absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ${'imgPos' in service && service.imgPos === 'right' ? 'object-right' : ''}`} />
                 {/* Dark overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10 group-hover:from-black/90 group-hover:via-black/50 transition-all duration-500"></div>
                 {/* Top accent line */}
