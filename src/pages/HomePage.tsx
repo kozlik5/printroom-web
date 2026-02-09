@@ -250,9 +250,7 @@ export default function HomePage() {
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-[#0a0e27]">
         {/* Background image */}
         <div className="absolute inset-0 z-0">
-          <img src="/images/services/hero-tlaciaren-splash-hd.jpg" alt="" className="w-full h-full object-cover object-bottom opacity-60" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e27] via-[#0a0e27]/80 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e27] via-transparent to-[#0a0e27]/50"></div>
+          <img src="/images/services/hero-tlaciaren-splash-hd.jpg" alt="" className="w-full h-full object-cover object-bottom" />
         </div>
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
