@@ -43,7 +43,7 @@ const categories: {
     ],
     cta: 'Chcem katalóg reklamných predmetov',
     slug: 'reklamne-predmety',
-    img: '/images/services/reklamne-predmety.jpg',
+    img: '/images/services/firemne-darceky.jpg',
   },
   {
     id: '3d-sluzby',

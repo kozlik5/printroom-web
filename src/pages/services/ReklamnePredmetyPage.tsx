@@ -18,7 +18,7 @@ export default function ReklamnePredmetyPage() {
         'Dáždniky a outdoorové potreby',
       ]}
       images={[
-        { src: '/images/services/reklamne-predmety.jpg', alt: 'Reklamné predmety s logom' },
+        { src: '/images/services/firemne-darceky.jpg', alt: 'Reklamné predmety s logom' },
       ]}
       icon={<Gift size={48} />}
       ctaText="Chcem katalóg reklamných predmetov"
