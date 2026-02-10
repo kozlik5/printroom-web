@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import CookieConsent from './components/CookieConsent';
+import ScrollToTopButton from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import HomePageDark from './pages/HomePageDark';
 import SluzbyPage from './pages/SluzbyPage';
@@ -67,6 +68,7 @@ export default function App() {
           }
         />
       </Routes>
+      <ScrollToTopButton />
       <CookieConsent />
     </>
   );

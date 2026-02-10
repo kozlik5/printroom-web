@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 
 const navLinks = [
-  { to: '/', label: 'Domov' },
   { to: '/sluzby', label: 'Služby' },
   { to: '/portfolio', label: 'Portfólio' },
   { to: '/kontakt', label: 'Kontakt' },
