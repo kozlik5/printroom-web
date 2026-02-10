@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Send, CheckCircle } from 'lucide-react';
+import { siteConfig } from '../siteConfig';
 
 interface FormData {
   name: string;
@@ -33,7 +34,7 @@ export default function ContactForm() {
     };
 
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch(siteConfig.contactApi, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -101,14 +102,9 @@ export default function ContactForm() {
           defaultValue=""
         >
           <option value="" disabled>Typ služby</option>
-          <option>Potlač textilu</option>
-          <option>Reklamné predmety</option>
-          <option>3D služby</option>
-          <option>Tlač a polygrafia</option>
-          <option>Veľkoformát</option>
-          <option>Polepy</option>
-          <option>Vyšívanie</option>
-          <option>Iné</option>
+          {siteConfig.serviceOptions.map((option) => (
+            <option key={option}>{option}</option>
+          ))}
         </select>
       </div>
 

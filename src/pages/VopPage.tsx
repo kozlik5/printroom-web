@@ -1,3 +1,5 @@
+import { siteConfig } from '../siteConfig';
+
 export default function VopPage() {
   return (
     <>
@@ -6,10 +8,10 @@ export default function VopPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-slate-900/95" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">
-            Všeobecné obchodné podmienky
+            {siteConfig.pages.vop.title}
           </h1>
           <p className="mt-4 text-xl text-slate-300 italic max-w-2xl mx-auto">
-            Podmienky poskytovania tlačiarenských a súvisiacich služieb
+            {siteConfig.pages.vop.subtitle}
           </p>
         </div>
       </section>
@@ -19,8 +21,8 @@ export default function VopPage() {
           <h2>1. Úvodné ustanovenia</h2>
           <p>
             Tieto Všeobecné obchodné podmienky (ďalej len „VOP") upravujú vzťahy medzi spoločnosťou
-            <strong> Print room s. r. o.</strong>, so sídlom Fialová 5/A, 851 07 Bratislava-Petržalka,
-            IČO: 47 368 161, zapísanou v OR Mestského súdu Bratislava III, odd. Sro, vl.č. 133581/B
+            <strong> {siteConfig.legalName}</strong>, so sídlom {siteConfig.address.full},
+            IČO: {siteConfig.ico}, {siteConfig.registracia}
             (ďalej len „dodávateľ") a objednávateľom (ďalej len „zákazník").
           </p>
           <p>
@@ -30,8 +32,8 @@ export default function VopPage() {
           <h2>2. Objednávky</h2>
           <p>
             Objednávku je možné zadať prostredníctvom kontaktného formulára na webovej stránke,
-            emailom na <a href="mailto:print@printroom.sk">print@printroom.sk</a> alebo telefonicky
-            na čísle <a href="tel:+421903584020">+421 903 584 020</a>.
+            emailom na <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> alebo telefonicky
+            na čísle <a href={`tel:${siteConfig.phoneRaw}`}>{siteConfig.phone}</a>.
           </p>
           <p>
             Objednávka sa považuje za záväznú po písomnom potvrdení dodávateľom (emailom).
@@ -45,7 +47,7 @@ export default function VopPage() {
           <h2>3. Ceny a platobné podmienky</h2>
           <p>
             Všetky ceny sú uvádzané bez DPH, pokiaľ nie je uvedené inak.
-            Dodávateľ je platcom DPH (IČ DPH: SK2023833449).
+            Dodávateľ je platcom DPH (IČ DPH: {siteConfig.icDph}).
           </p>
           <p>Platba je možná:</p>
           <ul>
@@ -64,7 +66,7 @@ export default function VopPage() {
           </p>
           <p>Spôsob dodania:</p>
           <ul>
-            <li>Osobný odber na adrese Fialová 5/A, Bratislava-Petržalka (Po–Pia 9:00–17:00)</li>
+            <li>Osobný odber na adrese {siteConfig.address.short} (Po–Pia 9:00–17:00)</li>
             <li>Kuriérska služba (náklady na dopravu hradí zákazník)</li>
           </ul>
 
@@ -76,7 +78,7 @@ export default function VopPage() {
           </p>
           <p>
             Reklamáciu je potrebné zaslať emailom na{' '}
-            <a href="mailto:print@printroom.sk">print@printroom.sk</a> spolu s fotografiou vady
+            <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> spolu s fotografiou vady
             a popisom problému. Dodávateľ sa zaväzuje vybaviť reklamáciu do 30 dní.
           </p>
           <p>Dodávateľ nezodpovedá za vady spôsobené:</p>

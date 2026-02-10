@@ -5,22 +5,25 @@ import {
   ArrowRight, CheckCircle2, Mail, Phone, MapPin, ChevronRight, Star, Gift, Box, Instagram, Facebook, Menu, X,
   Sun, Moon
 } from 'lucide-react';
-const services = [
-  { title: 'Potlač Textilu', icon: <Shirt size={32} />, desc: 'Tričká, mikiny, čiapky, pracovné odevy. Sieťotlač aj DTG.', size: 'large', img: '/images/services/potlac-textilu.jpg', slug: 'potlac-textilu', imgPos: 'right' as const },
-  { title: 'Reklamné Predmety', icon: <Gift size={32} />, desc: 'Perá, hrnčeky, tašky, zápisníky s vašim logom.', size: 'small', img: '/images/services/firemne-darceky.jpg', slug: 'reklamne-predmety' },
-  { title: '3D Služby', icon: <Box size={32} />, desc: '3D tlač, skenovanie a modelovanie. Prototypy aj hotové diely.', size: 'small', img: '/images/services/3d-sluzby.jpg', slug: '3d-sluzby' },
-  { title: 'Bannery a Plagáty', icon: <Maximize size={32} />, desc: 'Veľkoformátová tlač, roll-upy, mesh. Express do 24h.', size: 'small', img: '/images/services/bannery-plagaty.jpg', slug: 'bannery-velkoformat' },
-  { title: 'Vizitky a Brožúry', icon: <FileText size={32} />, desc: 'Vizitky, katalógy, letáky. Od kusovky po náklad.', size: 'large', img: '/images/services/vizitky.jpg', slug: 'tlac-polygrafia' },
-  { title: 'Polepy', icon: <Car size={32} />, desc: 'Polepy áut, výkladov, interiérov. Návrh aj realizácia.', size: 'small', img: '/images/services/polepy.jpg', slug: 'polepy' },
-  { title: 'Vyšívanie na Textil', icon: <Printer size={32} />, desc: 'Luxusná aplikácia loga vyšívaním na textil.', size: 'small', img: '/images/services/potlac-alt.jpg', slug: 'potlac-textilu' },
-];
+import { siteConfig } from '../siteConfig';
 
-const testimonials = [
-  { name: 'Martin K.', role: 'Marketingový manažér', text: 'Spolupráca s Printroom bola bezproblémová. Tričká pre celý tím do 3 dní, perfektná kvalita.', rating: 5 },
-  { name: 'Jana S.', role: 'Koordinátorka eventov', text: 'Bannery na konferenciu zvládli za 24 hodín. Farby presné, materiál odolný. Odporúčam.', rating: 5 },
-  { name: 'Peter D.', role: 'Majiteľ e-shopu', text: 'Vizitky a katalógy vyzerajú prémiovo. Konečne dodávateľ, na ktorého sa môžeme spoľahnúť.', rating: 5 },
-  { name: 'Lucia M.', role: 'Grafická dizajnérka', text: 'Rýchla komunikácia a výsledok presne podľa návrhu. Polepy na autá vyzerajú fantasticky.', rating: 5 },
-];
+// Icon mapping for services
+const serviceIcons: Record<string, React.ReactNode> = {
+  'potlac-textilu': <Shirt size={32} />,
+  'reklamne-predmety': <Gift size={32} />,
+  '3d-sluzby': <Box size={32} />,
+  'bannery-velkoformat': <Maximize size={32} />,
+  'tlac-polygrafia': <FileText size={32} />,
+  'polepy': <Car size={32} />,
+  'vysivanie': <Printer size={32} />,
+};
+
+const services = siteConfig.services.map(service => ({
+  ...service,
+  icon: serviceIcons[service.slug] || <Box size={32} />,
+}));
+
+const testimonials = siteConfig.testimonials;
 
 /* Animated counter hook */
 function useCountUp(end: number, duration = 2000, suffix = '') {
@@ -79,7 +82,7 @@ function HomeContactForm() {
       sprava: fd.get('Sprava') || '',
     };
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch(siteConfig.contactApi, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -177,7 +180,7 @@ export default function HomePage() {
       <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/80 dark:bg-[#0f1129]/90 backdrop-blur-xl shadow-lg shadow-slate-200/50 dark:shadow-slate-900/50 py-3' : 'bg-transparent py-6'}`}>
         <div className="max-w-[1400px] mx-auto px-6 flex justify-between items-center">
           <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="flex items-center group cursor-pointer">
-            <img src="/images/logo-white.png" alt="Print room" className={`h-12 w-auto group-hover:scale-105 transition-all duration-300 ${isScrolled ? 'invert dark:invert-0' : ''}`} />
+            <img src={siteConfig.logo} alt={siteConfig.name} className={`h-12 w-auto group-hover:scale-105 transition-all duration-300 ${isScrolled ? 'invert dark:invert-0' : ''}`} />
           </a>
           <div className="hidden lg:flex items-center gap-12 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
             <a href="#sluzby" className="hover:text-[#005088] dark:hover:text-[#f97316] transition">Služby</a>
@@ -192,12 +195,12 @@ export default function HomePage() {
             >
               {isDark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
-            <a href="tel:+421903584020" className="flex items-center gap-2 text-[11px] font-bold text-slate-500 dark:text-slate-400 hover:text-[#005088] dark:hover:text-[#f97316] transition">
+            <a href={`tel:${siteConfig.phone}`} className="flex items-center gap-2 text-[11px] font-bold text-slate-500 dark:text-slate-400 hover:text-[#005088] dark:hover:text-[#f97316] transition">
               <Phone size={14} className="text-[#f97316]" />
-              <span className="hidden lg:inline">+421 903 584 020</span>
+              <span className="hidden lg:inline">{siteConfig.phone}</span>
             </a>
             <a href="#kontakt" className="hidden lg:inline-block bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white px-8 py-3 text-[11px] font-bold uppercase tracking-widest rounded-xl hover:shadow-xl hover:shadow-orange-500/25 hover:scale-105 transition-all duration-300">
-              Cenová Ponuka
+              {siteConfig.cta.primary}
             </a>
           </div>
           <button className="lg:hidden text-slate-900 dark:text-white" onClick={() => setMobileOpen(!mobileOpen)}>
@@ -211,11 +214,11 @@ export default function HomePage() {
               <a href="#sluzby" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 dark:text-slate-300 hover:text-[#005088] dark:hover:text-[#f97316]">Služby</a>
               <a href="/portfolio" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 dark:text-slate-300 hover:text-[#005088] dark:hover:text-[#f97316]">Portfólio</a>
               <a href="#kontakt" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 dark:text-slate-300 hover:text-[#005088] dark:hover:text-[#f97316]">Kontakt</a>
-              <a href="tel:+421903584020" onClick={() => setMobileOpen(false)} className="flex items-center gap-3 text-base font-bold py-2 text-[#005088] dark:text-[#f97316]">
-                <Phone size={18} className="text-[#f97316]" /> +421 903 584 020
+              <a href={`tel:${siteConfig.phone}`} onClick={() => setMobileOpen(false)} className="flex items-center gap-3 text-base font-bold py-2 text-[#005088] dark:text-[#f97316]">
+                <Phone size={18} className="text-[#f97316]" /> {siteConfig.phone}
               </a>
               <a href="#kontakt" onClick={() => setMobileOpen(false)} className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white text-center px-6 py-4 rounded-xl font-bold uppercase tracking-wider mt-2">
-                Cenová Ponuka
+                {siteConfig.cta.primary}
               </a>
             </div>
           </div>
@@ -226,7 +229,7 @@ export default function HomePage() {
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-[#0a0e27]">
         {/* Background image */}
         <div className="absolute inset-0 z-0">
-          <img src="/images/services/hero-tlaciaren-splash-hd.jpg" alt="" className="w-full h-full object-cover object-bottom" />
+          <img src={siteConfig.hero.heroImage} alt="" className="w-full h-full object-cover object-bottom" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e27] via-[#0a0e27]/50 to-transparent"></div>
         </div>
 
@@ -235,23 +238,23 @@ export default function HomePage() {
             {/* Pill badge */}
             <div className="inline-flex items-center gap-2 mb-8 bg-white/10 backdrop-blur-md border border-white/15 px-5 py-2 rounded-full">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#f97316]">🖨️ Od roku 2013 v Petržalke</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#f97316]">{siteConfig.hero.badge}</span>
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-[90px] font-black leading-[1] tracking-tighter mb-8 text-white">
-              MODERNÁ TLAČ <br />
-              <span className="text-[#2a6f9a]">PRE VÁŠ</span> <br />
-              <span className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent italic">BIZNIS.</span>
+              {siteConfig.hero.headline[0]} <br />
+              <span className="text-[#2a6f9a]">{siteConfig.hero.headline[1]}</span> <br />
+              <span className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent italic">{siteConfig.hero.headline[2]}</span>
             </h1>
             <p className="text-white/60 text-lg md:text-xl max-w-xl mb-12 font-light leading-relaxed italic border-l-4 border-[#f97316] pl-6">
-              Váš partner v Petržalke od roku 2013. Prinášame komplexné riešenia od 1 kusu po tisícové série.
+              {siteConfig.hero.subtitle}
             </p>
             <div className="flex flex-wrap gap-6">
               <a href="#sluzby" className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white px-10 py-5 font-black uppercase text-xs tracking-[0.2em] flex items-center gap-4 hover:shadow-xl hover:shadow-orange-500/25 hover:scale-105 transition-all duration-300 rounded-2xl">
-                Naše Služby <ArrowRight size={18} />
+                {siteConfig.hero.ctaText} <ArrowRight size={18} />
               </a>
               <div className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-white/40">
-                <span className="text-2xl italic font-black tracking-normal bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent">11+</span> rokov skúseností
+                <span className="text-2xl italic font-black tracking-normal bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent">{siteConfig.hero.experienceYears}</span> rokov skúseností
               </div>
             </div>
           </div>
@@ -363,12 +366,7 @@ export default function HomePage() {
                 <span className="bg-gradient-to-r from-[#f97316] to-[#ef4444] bg-clip-text text-transparent">produkcia.</span>
               </h2>
               <div className="space-y-10">
-                {[
-                  { step: '01', title: 'Konzultácia', text: 'Vyberieme technológiu a vzorkovník materiálu.' },
-                  { step: '02', title: 'Prototyp', text: 'Kontrola grafiky a vytvorenie vzorky pred výrobou.' },
-                  { step: '03', title: 'Výroba', text: 'Precízna tlač pod dohľadom majstrov polygrafie.' },
-                  { step: '04', title: 'Expedícia', text: 'Doručenie kuriérom alebo odber v Petržalke.' },
-                ].map((item, i) => (
+                {siteConfig.process.map((item, i) => (
                   <div key={i} className="flex gap-8 group items-start">
                     <span className="text-4xl font-black bg-gradient-to-b from-slate-200 to-slate-100 bg-clip-text text-transparent group-hover:from-[#005088] group-hover:to-[#0070b8] transition-all duration-300">{item.step}</span>
                     <div className="border-l-2 border-slate-100 dark:border-slate-700 group-hover:border-[#f97316] transition-colors pl-6">
@@ -393,10 +391,9 @@ export default function HomePage() {
       {/* Stats Section */}
       <section className="py-16 bg-slate-50 dark:bg-[#1a1d3a]">
         <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-          <AnimatedStat end={5000} suffix="+" label="Dokončených zákaziek" />
-          <AnimatedStat end={24} suffix="h" label="Express výroba" />
-          <AnimatedStat end={11} suffix="+" label="Rokov skúseností" />
-          <AnimatedStat end={98} suffix="%" label="Spokojných klientov" />
+          {siteConfig.stats.map((stat, i) => (
+            <AnimatedStat key={i} end={stat.end} suffix={stat.suffix} label={stat.label} />
+          ))}
         </div>
       </section>
 
@@ -412,15 +409,7 @@ export default function HomePage() {
             <div className="bg-white/5 backdrop-blur-xl p-10 md:p-16 border border-white/10 rounded-2xl">
               <h4 className="text-center font-bold uppercase text-[10px] tracking-[0.4em] mb-10 bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent">Aktuálna produkčná kapacita</h4>
               <div className="space-y-5">
-                {[
-                  { label: 'Textil', value: 95, color: 'from-[#f97316] to-[#f59e0b]' },
-                  { label: 'Reklama', value: 85, color: 'from-[#005088] to-[#0070b8]' },
-                  { label: '3D', value: 80, color: 'from-[#8b5cf6] to-[#a78bfa]' },
-                  { label: 'Bannery', value: 90, color: 'from-[#f97316] to-[#ef4444]' },
-                  { label: 'Polygrafia', value: 100, color: 'from-[#005088] to-[#00a8e8]' },
-                  { label: 'Polepy', value: 75, color: 'from-[#10b981] to-[#34d399]' },
-                  { label: 'Výšivka', value: 85, color: 'from-[#f97316] to-[#f59e0b]' },
-                ].map((item, i) => (
+                {siteConfig.capacity.map((item, i) => (
                   <div key={i} className="group">
                     <div className="flex justify-between mb-1.5">
                       <span className="text-xs md:text-[10px] font-bold uppercase tracking-widest text-white/60 group-hover:text-white transition-colors">{item.label}</span>
@@ -472,31 +461,31 @@ export default function HomePage() {
                   Povedzte nám o svojom projekte a my vám navrhneme najlepšiu cestu k realizácii.
                 </p>
                 <div className="space-y-4 md:space-y-6">
-                  <a href="mailto:print@printroom.sk" className="flex items-center gap-4 md:gap-6 group cursor-pointer">
+                  <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-4 md:gap-6 group cursor-pointer">
                     <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm flex items-center justify-center text-[#f97316] group-hover:bg-gradient-to-r group-hover:from-[#f97316] group-hover:to-[#f59e0b] group-hover:text-white transition-all rounded-xl flex-shrink-0">
                       <Mail size={18} />
                     </div>
-                    <span className="font-bold tracking-wider md:tracking-widest text-sm md:text-xs md:uppercase">print@printroom.sk</span>
+                    <span className="font-bold tracking-wider md:tracking-widest text-sm md:text-xs md:uppercase">{siteConfig.email}</span>
                   </a>
-                  <a href="tel:+421903584020" className="flex items-center gap-4 md:gap-6 group cursor-pointer">
+                  <a href={`tel:${siteConfig.phone}`} className="flex items-center gap-4 md:gap-6 group cursor-pointer">
                     <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm flex items-center justify-center text-[#f97316] group-hover:bg-gradient-to-r group-hover:from-[#f97316] group-hover:to-[#f59e0b] group-hover:text-white transition-all rounded-xl flex-shrink-0">
                       <Phone size={18} />
                     </div>
-                    <span className="font-bold tracking-wider md:tracking-widest text-sm md:text-xs md:uppercase">+421 903 584 020</span>
+                    <span className="font-bold tracking-wider md:tracking-widest text-sm md:text-xs md:uppercase">{siteConfig.phone}</span>
                   </a>
-                  <a href="https://maps.google.com/?q=Fialová+5/A,+851+07+Bratislava-Petržalka" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 md:gap-6 group cursor-pointer">
+                  <a href={siteConfig.address.mapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 md:gap-6 group cursor-pointer">
                     <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm flex items-center justify-center text-[#f97316] group-hover:bg-gradient-to-r group-hover:from-[#f97316] group-hover:to-[#f59e0b] group-hover:text-white transition-all rounded-xl flex-shrink-0">
                       <MapPin size={18} />
                     </div>
-                    <span className="font-bold tracking-wider md:tracking-widest text-sm md:text-xs md:uppercase text-blue-200">Fialová 5/A, Bratislava — Petržalka</span>
+                    <span className="font-bold tracking-wider md:tracking-widest text-sm md:text-xs md:uppercase text-blue-200">{siteConfig.address.short}</span>
                   </a>
                 </div>
               </div>
               <div className="mt-20 flex gap-4">
-                <a href="https://instagram.com/printroom.sk" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/10 backdrop-blur-sm flex items-center justify-center rounded-xl hover:bg-[#f97316] transition-all duration-300">
+                <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/10 backdrop-blur-sm flex items-center justify-center rounded-xl hover:bg-[#f97316] transition-all duration-300">
                   <Instagram size={20} />
                 </a>
-                <a href="https://facebook.com/people/Printroom/61564243379044" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/10 backdrop-blur-sm flex items-center justify-center rounded-xl hover:bg-[#f97316] transition-all duration-300">
+                <a href={siteConfig.social.facebook} target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/10 backdrop-blur-sm flex items-center justify-center rounded-xl hover:bg-[#f97316] transition-all duration-300">
                   <Facebook size={20} />
                 </a>
               </div>
@@ -512,15 +501,15 @@ export default function HomePage() {
       <footer className="bg-slate-50 dark:bg-[#0a0c1a] py-16 px-6 border-t border-slate-100 dark:border-slate-800">
         <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
           <div className="flex items-center">
-            <img src="/images/logo-white.png" alt="Print room" className="h-12 w-auto invert dark:invert-0" />
+            <img src={siteConfig.logo} alt={siteConfig.name} className="h-12 w-auto invert dark:invert-0" />
           </div>
           <div className="text-[10px] font-bold uppercase tracking-[0.5em] text-slate-400 dark:text-slate-500 text-center">
-            © 2013—2026 Printroom Studio Bratislava • Všetky práva vyhradené
+            {siteConfig.footer.copyright}
           </div>
           <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-[#005088] dark:text-[#f97316]">
-            Líder v kvalite
+            {siteConfig.footer.badges[0]}
             <div className="h-4 w-px bg-slate-300 dark:bg-slate-600"></div>
-            Vyrobené na Slovensku
+            {siteConfig.footer.badges[1]}
           </div>
         </div>
       </footer>

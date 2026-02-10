@@ -1,6 +1,7 @@
 import { Phone, Mail, MapPin, Clock, Instagram } from 'lucide-react';
 import { Facebook } from '../components/icons';
 import ContactForm from '../components/ContactForm';
+import { siteConfig } from '../siteConfig';
 
 export default function KontaktPage() {
   return (
@@ -10,10 +11,10 @@ export default function KontaktPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-slate-900/95" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">
-            Kontaktujte nás
+            {siteConfig.pages.kontakt.title}
           </h1>
           <p className="mt-4 text-xl text-slate-300 italic max-w-2xl mx-auto">
-            Potrebujete cenovú ponuku alebo konzultáciu? Napíšte nám — ozveme sa do 24 hodín. Sídlime v Bratislave-Petržalke a obsluhujeme firmy z celého západného Slovenska.
+            {siteConfig.pages.kontakt.subtitle}
           </p>
         </div>
       </section>
@@ -32,17 +33,17 @@ export default function KontaktPage() {
                     <h3 className="text-sm font-bold uppercase tracking-wider text-blue-200 mb-2">Adresa</h3>
                     <p className="flex items-start gap-2 text-blue-100">
                       <MapPin size={18} className="mt-0.5 flex-shrink-0" />
-                      <span>Print room s. r. o.<br />Fialová 5/A<br />851 07 Bratislava-Petržalka</span>
+                      <span>{siteConfig.legalName}<br />{siteConfig.address.street}<br />{siteConfig.address.zip} {siteConfig.address.city}-{siteConfig.address.district}</span>
                     </p>
                   </div>
 
                   <div>
                     <h3 className="text-sm font-bold uppercase tracking-wider text-blue-200 mb-2">Kontakt</h3>
-                    <a href="tel:+421903584020" className="flex items-center gap-2 text-blue-100 hover:text-white transition-colors">
-                      <Phone size={18} /> +421 903 584 020
+                    <a href={`tel:${siteConfig.phoneRaw}`} className="flex items-center gap-2 text-blue-100 hover:text-white transition-colors">
+                      <Phone size={18} /> {siteConfig.phone}
                     </a>
-                    <a href="mailto:print@printroom.sk" className="flex items-center gap-2 text-blue-100 hover:text-white transition-colors mt-1">
-                      <Mail size={18} /> print@printroom.sk
+                    <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-2 text-blue-100 hover:text-white transition-colors mt-1">
+                      <Mail size={18} /> {siteConfig.email}
                     </a>
                   </div>
 
@@ -50,15 +51,15 @@ export default function KontaktPage() {
                     <h3 className="text-sm font-bold uppercase tracking-wider text-blue-200 mb-2">Otváracie hodiny</h3>
                     <p className="flex items-center gap-2 text-blue-100">
                       <Clock size={18} />
-                      <span>Po-Pia: 9:00 - 17:00<br />So-Ne: zatvorené</span>
+                      <span style={{ whiteSpace: 'pre-line' }}>{siteConfig.hours}</span>
                     </p>
                   </div>
 
                   <div className="flex gap-4 pt-2">
-                    <a href="https://instagram.com/printroom.sk" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white transition-colors">
+                    <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white transition-colors">
                       <Instagram size={22} />
                     </a>
-                    <a href="https://facebook.com/people/Printroom/61564243379044" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white transition-colors">
+                    <a href={siteConfig.social.facebook} target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white transition-colors">
                       <Facebook size={22} />
                     </a>
                   </div>
@@ -79,8 +80,8 @@ export default function KontaktPage() {
         <div className="max-w-5xl mx-auto px-4">
           <div className="rounded-2xl overflow-hidden shadow-lg">
             <iframe
-              title="Print Room - Fialová 5/A, Bratislava"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.5!2d17.1119!3d48.1087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDjCsDA2JzMxLjMiTiAxN8KwMDYnNDIuOCJF!5e0!3m2!1ssk!2ssk!4v1700000000000!5m2!1ssk!2ssk"
+              title={`${siteConfig.name} - ${siteConfig.address.full}`}
+              src={siteConfig.address.mapsEmbed}
               width="100%"
               height="400"
               style={{ border: 0 }}

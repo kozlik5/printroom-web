@@ -1,3 +1,5 @@
+import { siteConfig } from '../siteConfig';
+
 export default function GdprPage() {
   return (
     <>
@@ -6,10 +8,10 @@ export default function GdprPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-slate-900/95" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">
-            Ochrana osobných údajov
+            {siteConfig.pages.gdpr.title}
           </h1>
           <p className="mt-4 text-xl text-slate-300 italic max-w-2xl mx-auto">
-            Informácie o spracúvaní osobných údajov v súlade s GDPR
+            {siteConfig.pages.gdpr.subtitle}
           </p>
         </div>
       </section>
@@ -18,16 +20,16 @@ export default function GdprPage() {
         <div className="max-w-3xl mx-auto px-4 prose prose-slate dark:prose-invert prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tighter">
           <h2>1. Prevádzkovateľ</h2>
           <p>
-            <strong>Print room s. r. o.</strong><br />
-            Fialová 5/A, 851 07 Bratislava-Petržalka<br />
-            IČO: 47 368 161<br />
-            DIČ: 2023833449<br />
-            IČ DPH: SK2023833449<br />
-            Zapísaná v OR Mestského súdu Bratislava III, odd. Sro, vl.č. 133581/B
+            <strong>{siteConfig.legalName}</strong><br />
+            {siteConfig.address.full}<br />
+            IČO: {siteConfig.ico}<br />
+            DIČ: {siteConfig.dic}<br />
+            IČ DPH: {siteConfig.icDph}<br />
+            {siteConfig.registracia}
           </p>
           <p>
-            Email: <a href="mailto:print@printroom.sk">print@printroom.sk</a><br />
-            Telefón: <a href="tel:+421903584020">+421 903 584 020</a>
+            Email: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a><br />
+            Telefón: <a href={`tel:${siteConfig.phoneRaw}`}>{siteConfig.phone}</a>
           </p>
 
           <h2>2. Aké osobné údaje zbierame</h2>
@@ -59,7 +61,7 @@ export default function GdprPage() {
           </p>
           <p>
             Svoj súhlas môžete kedykoľvek odvolať zaslaním emailu na{' '}
-            <a href="mailto:print@printroom.sk">print@printroom.sk</a>.
+            <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
           </p>
 
           <h2>5. Doba uchovávania</h2>
@@ -80,7 +82,7 @@ export default function GdprPage() {
           </ul>
           <p>
             Svoje práva si môžete uplatniť zaslaním emailu na{' '}
-            <a href="mailto:print@printroom.sk">print@printroom.sk</a>.
+            <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
           </p>
 
           <h2>7. Cookies</h2>

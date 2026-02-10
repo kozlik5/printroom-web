@@ -1,12 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Sun, Moon } from 'lucide-react';
+import { siteConfig } from '../siteConfig';
 
-const navLinks = [
-  { to: '/sluzby', label: 'Služby' },
-  { to: '/portfolio', label: 'Portfólio' },
-  { to: '/kontakt', label: 'Kontakt' },
-];
+const navLinks = siteConfig.navigation.main;
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -40,8 +37,8 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
         <Link to="/" className="flex items-center group">
           <img
-            src="/images/logo-white.png"
-            alt="Print room"
+            src={siteConfig.logo}
+            alt={siteConfig.name}
             className="h-12 w-auto invert dark:invert-0 group-hover:scale-105 transition-all duration-300"
           />
         </Link>
@@ -54,8 +51,8 @@ export default function Header() {
               to={l.to}
               className={`text-sm font-bold uppercase tracking-wider transition-colors ${
                 location.pathname === l.to
-                  ? 'text-[#f97316]'
-                  : 'text-slate-700 dark:text-slate-300 hover:text-[#005088] dark:hover:text-[#f97316]'
+                  ? `text-[${siteConfig.colors.accent}]`
+                  : `text-slate-700 dark:text-slate-300 hover:text-[${siteConfig.colors.primary}] dark:hover:text-[${siteConfig.colors.accent}]`
               }`}
             >
               {l.label}
@@ -70,9 +67,9 @@ export default function Header() {
           </button>
           <Link
             to="/kontakt"
-            className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] hover:shadow-xl hover:shadow-orange-500/25 hover:scale-105 text-white px-6 py-2.5 rounded-xl text-sm font-bold uppercase tracking-wider transition-all duration-300"
+            className={`bg-gradient-to-r from-[${siteConfig.colors.accent}] to-[${siteConfig.colors.accentEnd}] hover:shadow-xl hover:shadow-orange-500/25 hover:scale-105 text-white px-6 py-2.5 rounded-xl text-sm font-bold uppercase tracking-wider transition-all duration-300`}
           >
-            Cenová ponuka
+            {siteConfig.cta.primary}
           </Link>
         </nav>
 
@@ -103,7 +100,7 @@ export default function Header() {
                 key={l.to}
                 to={l.to}
                 className={`text-base font-bold uppercase tracking-wider py-2 ${
-                  location.pathname === l.to ? 'text-[#f97316]' : 'text-slate-700 dark:text-slate-300'
+                  location.pathname === l.to ? `text-[${siteConfig.colors.accent}]` : 'text-slate-700 dark:text-slate-300'
                 }`}
               >
                 {l.label}
@@ -111,9 +108,9 @@ export default function Header() {
             ))}
             <Link
               to="/kontakt"
-              className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white text-center px-5 py-3 rounded-xl font-bold uppercase tracking-wider mt-2"
+              className={`bg-gradient-to-r from-[${siteConfig.colors.accent}] to-[${siteConfig.colors.accentEnd}] text-white text-center px-5 py-3 rounded-xl font-bold uppercase tracking-wider mt-2`}
             >
-              Cenová ponuka
+              {siteConfig.cta.primary}
             </Link>
           </nav>
         </div>
