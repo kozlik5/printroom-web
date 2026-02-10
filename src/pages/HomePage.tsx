@@ -182,7 +182,7 @@ export default function HomePage() {
           <div className="hidden lg:flex items-center gap-12 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
             <a href="#" className="hover:text-[#005088] dark:hover:text-[#f97316] transition">Domov</a>
             <a href="#sluzby" className="hover:text-[#005088] dark:hover:text-[#f97316] transition">Služby</a>
-            <a href="#proces" className="hover:text-[#005088] dark:hover:text-[#f97316] transition">O nás</a>
+            <a href="/portfolio" className="hover:text-[#005088] dark:hover:text-[#f97316] transition">Portfólio</a>
             <a href="#kontakt" className="hover:text-[#005088] dark:hover:text-[#f97316] transition">Kontakt</a>
           </div>
           <div className="flex items-center gap-4">
@@ -212,7 +212,7 @@ export default function HomePage() {
             <div className="flex flex-col p-6 gap-4">
               <a href="#" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 dark:text-slate-300 hover:text-[#005088] dark:hover:text-[#f97316]">Domov</a>
               <a href="#sluzby" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 dark:text-slate-300 hover:text-[#005088] dark:hover:text-[#f97316]">Služby</a>
-              <a href="#proces" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 dark:text-slate-300 hover:text-[#005088] dark:hover:text-[#f97316]">O nás</a>
+              <a href="/portfolio" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 dark:text-slate-300 hover:text-[#005088] dark:hover:text-[#f97316]">Portfólio</a>
               <a href="#kontakt" onClick={() => setMobileOpen(false)} className="text-base font-bold uppercase tracking-wider py-2 text-slate-700 dark:text-slate-300 hover:text-[#005088] dark:hover:text-[#f97316]">Kontakt</a>
               <a href="tel:+421903584020" onClick={() => setMobileOpen(false)} className="flex items-center gap-3 text-base font-bold py-2 text-[#005088] dark:text-[#f97316]">
                 <Phone size={18} className="text-[#f97316]" /> +421 903 584 020
