@@ -77,7 +77,7 @@ export default function PortfolioPage() {
               <button
                 key={f}
                 onClick={() => setActive(f)}
-                className={`px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider transition-colors ${
+                className={`px-4 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider transition-colors ${
                   active === f
                     ? 'bg-primary text-white'
                     : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'

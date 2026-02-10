@@ -58,7 +58,7 @@ function AnimatedStat({ end, suffix, label }: { end: number; suffix: string; lab
   const { ref, value } = useCountUp(end, 2000, suffix);
   return (
     <div ref={ref} className="text-center">
-      <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent">{value}</div>
+      <div className="text-3xl md:text-5xl font-black bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent">{value}</div>
       <div className="mt-2 text-sm text-slate-400 dark:text-slate-500 uppercase tracking-wider font-semibold">{label}</div>
     </div>
   );
@@ -192,12 +192,11 @@ export default function HomePage() {
             >
               {isDark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
-            <a href="tel:+421903584020" className="flex items-center gap-2 text-[11px] font-bold text-slate-500 dark:text-slate-400 hover:text-[#005088] dark:hover:text-[#f97316] transition">
+            <a href="tel:+421903584020" className="hidden lg:flex items-center gap-2 text-[11px] font-bold text-slate-500 dark:text-slate-400 hover:text-[#005088] dark:hover:text-[#f97316] transition">
               <Phone size={14} className="text-[#f97316]" />
-              <span className="hidden sm:inline">+421 903 584 020</span>
-              <span className="sm:hidden">Zavolať</span>
+              <span>+421 903 584 020</span>
             </a>
-            <a href="#kontakt" className="hidden sm:inline-block bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white px-8 py-3 text-[11px] font-bold uppercase tracking-widest rounded-xl hover:shadow-xl hover:shadow-orange-500/25 hover:scale-105 transition-all duration-300">
+            <a href="#kontakt" className="hidden lg:inline-block bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white px-8 py-3 text-[11px] font-bold uppercase tracking-widest rounded-xl hover:shadow-xl hover:shadow-orange-500/25 hover:scale-105 transition-all duration-300">
               Cenová Ponuka
             </a>
           </div>
@@ -239,7 +238,7 @@ export default function HomePage() {
               <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#f97316]">🖨️ Od roku 2013 v Petržalke</span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[1] tracking-tighter mb-8 text-white">
+            <h1 className="text-4xl md:text-6xl lg:text-[90px] font-black leading-[1] tracking-tighter mb-8 text-white">
               MODERNÁ TLAČ <br />
               <span className="text-[#2a6f9a]">PRE VÁŠ</span> <br />
               <span className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent italic">BIZNIS.</span>
@@ -424,8 +423,8 @@ export default function HomePage() {
                 ].map((item, i) => (
                   <div key={i} className="group">
                     <div className="flex justify-between mb-1.5">
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-white/60 group-hover:text-white transition-colors">{item.label}</span>
-                      <span className="text-[10px] font-black text-white/80">{item.value}%</span>
+                      <span className="text-xs md:text-[10px] font-bold uppercase tracking-widest text-white/60 group-hover:text-white transition-colors">{item.label}</span>
+                      <span className="text-xs md:text-[10px] font-black text-white/80">{item.value}%</span>
                     </div>
                     <div className="h-3 bg-white/5 rounded-full overflow-hidden">
                       <div
@@ -466,7 +465,7 @@ export default function HomePage() {
           <div className="bg-gradient-to-br from-[#005088] to-[#003d68] rounded-3xl overflow-hidden flex flex-col lg:flex-row shadow-2xl shadow-blue-900/20">
             <div className="lg:w-1/2 p-12 md:p-20 text-white flex flex-col justify-between">
               <div>
-                <h2 className="text-6xl font-black uppercase italic leading-none mb-10">
+                <h2 className="text-4xl md:text-6xl font-black uppercase italic leading-none mb-10">
                   Napíšte <br /> <span className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] bg-clip-text text-transparent">nám.</span>
                 </h2>
                 <p className="text-blue-100 text-lg font-light mb-16 max-w-sm italic">
