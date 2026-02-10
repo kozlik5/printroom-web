@@ -1,21 +1,50 @@
 import { useState } from 'react';
 import { X } from 'lucide-react';
 
-const filters = ['Všetko', 'Potlač textilu', 'Reklamné predmety', '3D služby', 'Tlač', 'Veľkoformát', 'Polepy'];
+const filters = ['Všetko', 'Potlač textilu', 'Reklamné predmety', '3D služby', 'Tlač a polygrafia', 'Veľkoformát', 'Polepy'];
 
 const items = [
-  { cat: 'Potlač textilu', img: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600&h=500&fit=crop', title: 'Firemné tričká' },
-  { cat: 'Reklamné predmety', img: 'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=600&h=700&fit=crop', title: 'Reklamné perá' },
-  { cat: '3D služby', img: 'https://images.unsplash.com/photo-1581092160607-ee67df30e7db?w=600&h=600&fit=crop', title: '3D prototyp' },
-  { cat: 'Tlač', img: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600&h=500&fit=crop', title: 'Premium vizitky' },
-  { cat: 'Veľkoformát', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=700&fit=crop', title: 'Roll-up banner' },
-  { cat: 'Polepy', img: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0afa?w=600&h=500&fit=crop', title: 'Polep dodávky' },
-  { cat: 'Potlač textilu', img: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&h=600&fit=crop', title: 'Športové dresy' },
-  { cat: 'Tlač', img: 'https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=600&h=700&fit=crop', title: 'Brožúra A4' },
-  { cat: '3D služby', img: 'https://images.unsplash.com/photo-1631645353990-38f11b81de3e?w=600&h=500&fit=crop', title: 'Architektonický model' },
-  { cat: 'Reklamné predmety', img: 'https://images.unsplash.com/photo-1577937927133-66ef06acdf18?w=600&h=600&fit=crop', title: 'Firemné hrnčeky' },
-  { cat: 'Veľkoformát', img: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=500&fit=crop', title: 'Event branding' },
-  { cat: 'Polepy', img: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&h=700&fit=crop', title: 'Celopolep auta' },
+  // Potlač textilu
+  { cat: 'Potlač textilu', img: '/images/portfolio/potlac/comic-2.jpg', title: 'Potlač tričiek — Comic' },
+  { cat: 'Potlač textilu', img: '/images/portfolio/potlac/dpm-1.jpg', title: 'Firemné oblečenie DPM' },
+  { cat: 'Potlač textilu', img: '/images/portfolio/potlac/dpm-6.jpg', title: 'Pracovné odevy DPM' },
+  { cat: 'Potlač textilu', img: '/images/portfolio/potlac/jednota-1.jpg', title: 'Potlač pre Jednotu' },
+  { cat: 'Potlač textilu', img: '/images/portfolio/potlac/jednota-7.jpg', title: 'Firemný textil Jednota' },
+  { cat: 'Potlač textilu', img: '/images/portfolio/potlac/move-2.jpg', title: 'Športové tričká MOVE' },
+  { cat: 'Potlač textilu', img: '/images/portfolio/potlac/move.jpg', title: 'Kolekcia MOVE' },
+  { cat: 'Potlač textilu', img: '/images/portfolio/potlac/img-5725.jpg', title: 'Potlač textilu — ukážka' },
+  { cat: 'Potlač textilu', img: '/images/portfolio/potlac/img-5829.jpg', title: 'Sieťotlač na textil' },
+  { cat: 'Potlač textilu', img: '/images/portfolio/potlac/steve.jpg', title: 'Potlačené tričko' },
+
+  // Reklamné predmety
+  { cat: 'Reklamné predmety', img: '/images/portfolio/reklamne/alfa-4.jpg', title: 'Reklamné predmety Alfa' },
+  { cat: 'Reklamné predmety', img: '/images/portfolio/reklamne/alfa-5.jpg', title: 'Firemné darčeky Alfa' },
+  { cat: 'Reklamné predmety', img: '/images/portfolio/reklamne/img-5701.jpg', title: 'Reklamné predmety — ukážka' },
+  { cat: 'Reklamné predmety', img: '/images/portfolio/reklamne/img-5704.jpg', title: 'Firemné darčeky' },
+  { cat: 'Reklamné predmety', img: '/images/portfolio/reklamne/olejova-pera.jpg', title: 'Perá s potlačou — Olejová akadémia' },
+  { cat: 'Reklamné predmety', img: '/images/portfolio/reklamne/olejova-salky.jpg', title: 'Šálky s potlačou — Olejová akadémia' },
+  { cat: 'Reklamné predmety', img: '/images/portfolio/reklamne/salvatora-tasky.jpg', title: 'Tašky — Lekáreň u Salvátora' },
+  { cat: 'Reklamné predmety', img: '/images/portfolio/reklamne/salvatora-zapisniky.jpg', title: 'Zápisníky — Lekáreň u Salvátora' },
+  { cat: 'Reklamné predmety', img: '/images/portfolio/reklamne/silver-3.jpg', title: 'Reklamné predmety Silver' },
+
+  // 3D služby
+  { cat: '3D služby', img: '/images/portfolio/3d/olejova-pera.jpg', title: '3D tlač — perá' },
+  { cat: '3D služby', img: '/images/portfolio/3d/olejova-salky-2.jpg', title: '3D tlač — šálky' },
+  { cat: '3D služby', img: '/images/portfolio/3d/olejova-salky.jpg', title: '3D realizácia' },
+
+  // Veľkoformát / Bannery
+  { cat: 'Veľkoformát', img: '/images/portfolio/bannery/banner-1.jpg', title: 'Veľkoformátový banner' },
+  { cat: 'Veľkoformát', img: '/images/portfolio/bannery/banner-2.jpg', title: 'Roll-up banner' },
+
+  // Tlač a polygrafia
+  { cat: 'Tlač a polygrafia', img: '/images/portfolio/vizitky/vizitky.jpg', title: 'Premium vizitky' },
+  { cat: 'Tlač a polygrafia', img: '/images/portfolio/brozury/img-5701.jpg', title: 'Brožúry a katalógy' },
+  { cat: 'Tlač a polygrafia', img: '/images/portfolio/brozury/img-5704.jpg', title: 'Firemné katalógy' },
+  { cat: 'Tlač a polygrafia', img: '/images/portfolio/brozury/img-5719.jpg', title: 'Tlačoviny' },
+
+  // Polepy
+  { cat: 'Polepy', img: '/images/portfolio/polepy/car-wrap-1.jpg', title: 'Celopolep vozidla' },
+  { cat: 'Polepy', img: '/images/portfolio/polepy/car-wrap-2.jpg', title: 'Polep firemného auta' },
 ];
 
 export default function PortfolioPage() {
@@ -98,7 +127,7 @@ export default function PortfolioPage() {
             <X size={32} />
           </button>
           <img
-            src={lightbox.replace(/w=\d+&h=\d+/, 'w=1200&h=900')}
+            src={lightbox}
             alt="Detail"
             className="max-w-full max-h-[85vh] rounded-lg"
           />
