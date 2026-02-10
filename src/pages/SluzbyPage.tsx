@@ -155,10 +155,10 @@ export default function SluzbyPage() {
                   ))}
                 </ul>
                 <Link
-                  to="/kontakt"
+                  to={`/sluzby/${cat.slug}`}
                   className="mt-6 inline-block bg-accent hover:bg-orange-600 text-white font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm transition-colors"
                 >
-                  {cat.cta}
+                  Zistiť viac →
                 </Link>
               </div>
               <div className="flex-1 w-full">
