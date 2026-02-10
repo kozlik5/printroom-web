@@ -514,9 +514,8 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="bg-slate-50 dark:bg-[#0a0c1a] py-16 px-6 border-t border-slate-100 dark:border-slate-800">
         <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-[#005088] to-[#0070b8] text-white flex items-center justify-center font-black rounded-xl text-lg">P</div>
-            <span className="text-xl font-black uppercase tracking-tighter text-slate-900 dark:text-white italic">Printroom.</span>
+          <div className="flex items-center">
+            <img src="/images/logo-white.png" alt="Print room" className="h-12 w-auto invert dark:invert-0" />
           </div>
           <div className="text-[10px] font-bold uppercase tracking-[0.5em] text-slate-400 dark:text-slate-500 text-center">
             © 2013—2026 Printroom Studio Bratislava • Všetky práva vyhradené
