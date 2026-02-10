@@ -192,9 +192,9 @@ export default function HomePage() {
             >
               {isDark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
-            <a href="tel:+421903584020" className="hidden lg:flex items-center gap-2 text-[11px] font-bold text-slate-500 dark:text-slate-400 hover:text-[#005088] dark:hover:text-[#f97316] transition">
+            <a href="tel:+421903584020" className="flex items-center gap-2 text-[11px] font-bold text-slate-500 dark:text-slate-400 hover:text-[#005088] dark:hover:text-[#f97316] transition">
               <Phone size={14} className="text-[#f97316]" />
-              <span>+421 903 584 020</span>
+              <span className="hidden lg:inline">+421 903 584 020</span>
             </a>
             <a href="#kontakt" className="hidden lg:inline-block bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white px-8 py-3 text-[11px] font-bold uppercase tracking-widest rounded-xl hover:shadow-xl hover:shadow-orange-500/25 hover:scale-105 transition-all duration-300">
               Cenová Ponuka
