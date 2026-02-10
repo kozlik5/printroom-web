@@ -177,15 +177,15 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white dark:bg-[#0f1129] text-slate-900 dark:text-white font-sans selection:bg-orange-100 selection:text-orange-900 transition-colors duration-300">
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/80 dark:bg-[#0f1129]/90 backdrop-blur-xl shadow-lg shadow-slate-200/50 dark:shadow-slate-900/50 py-3' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/80 dark:bg-[#0f1129]/90 backdrop-blur-xl shadow-lg shadow-slate-200/50 dark:shadow-slate-900/50 py-3' : 'bg-white dark:bg-[#0f1129] shadow-md dark:shadow-slate-900/50 py-4'}`}>
         <div className="max-w-[1400px] mx-auto px-6 flex justify-between items-center">
           <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="flex items-center group cursor-pointer">
-            <img src={siteConfig.logo} alt={siteConfig.name} className={`h-12 w-auto group-hover:scale-105 transition-all duration-300 ${isScrolled ? 'invert dark:invert-0' : ''}`} />
+            <img src={siteConfig.logo} alt={siteConfig.name} className="h-12 w-auto group-hover:scale-105 transition-all duration-300 invert dark:invert-0" />
           </a>
-          <div className="hidden lg:flex items-center gap-12 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-            <a href="#sluzby" className="hover:text-[#005088] dark:hover:text-[#f97316] transition">Služby</a>
-            <a href="/portfolio" className="hover:text-[#005088] dark:hover:text-[#f97316] transition">Portfólio</a>
-            <a href="#kontakt" className="hover:text-[#005088] dark:hover:text-[#f97316] transition">Kontakt</a>
+          <div className="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-[0.2em]">
+            <a href="#sluzby" className="px-3 py-1.5 rounded-lg border border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 hover:border-[#f97316] transition-all duration-300">Služby</a>
+            <a href="/portfolio" className="px-3 py-1.5 rounded-lg border border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 hover:border-[#f97316] transition-all duration-300">Portfólio</a>
+            <a href="#kontakt" className="px-3 py-1.5 rounded-lg border border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 hover:border-[#f97316] transition-all duration-300">Kontakt</a>
           </div>
           <div className="flex items-center gap-4">
             <button 
@@ -498,18 +498,51 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-50 dark:bg-[#0a0c1a] py-16 px-6 border-t border-slate-100 dark:border-slate-800">
-        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-          <div className="flex items-center">
-            <img src={siteConfig.logo} alt={siteConfig.name} className="h-12 w-auto invert dark:invert-0" />
+      <footer className="bg-slate-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 py-16 grid md:grid-cols-3 gap-12">
+          <div>
+            <img src={siteConfig.logo} alt={siteConfig.name} className="h-12 w-auto" />
+            <p className="mt-4 text-slate-400 text-sm leading-relaxed">
+              {siteConfig.footer.tagline}
+            </p>
+            <div className="flex items-center gap-3 mt-6">
+              {siteConfig.footer.badges.map((badge, i) => (
+                <span key={i} className="text-[10px] font-black uppercase tracking-widest text-[#f97316]">{badge}</span>
+              ))}
+            </div>
           </div>
-          <div className="text-[10px] font-bold uppercase tracking-[0.5em] text-slate-400 dark:text-slate-500 text-center">
-            {siteConfig.footer.copyright}
+          <div>
+            <h4 className="font-bold uppercase tracking-wider text-sm mb-4">Navigácia</h4>
+            <nav className="flex flex-col gap-2 text-sm text-slate-400">
+              {siteConfig.navigation.footer.map((link) => (
+                <a key={link.to} href={link.to} className="hover:text-white transition-colors">{link.label}</a>
+              ))}
+            </nav>
           </div>
-          <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-[#005088] dark:text-[#f97316]">
-            {siteConfig.footer.badges[0]}
-            <div className="h-4 w-px bg-slate-300 dark:bg-slate-600"></div>
-            {siteConfig.footer.badges[1]}
+          <div>
+            <h4 className="font-bold uppercase tracking-wider text-sm mb-4">Kontakt</h4>
+            <div className="flex flex-col gap-3 text-sm text-slate-400">
+              <a href={`tel:${siteConfig.phoneRaw}`} className="flex items-center gap-2 hover:text-white transition-colors">
+                <Phone size={16} /> {siteConfig.phone}
+              </a>
+              <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-2 hover:text-white transition-colors">
+                <Mail size={16} /> {siteConfig.email}
+              </a>
+              <span className="flex items-center gap-2">
+                <MapPin size={16} /> {siteConfig.address.short}
+              </span>
+              {siteConfig.social.instagram && (
+                <div className="flex gap-4 mt-2">
+                  <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-[#f97316] transition-colors"><Instagram size={20} /></a>
+                  <a href={siteConfig.social.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-[#f97316] transition-colors"><Facebook size={20} /></a>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+        <div className="border-t border-slate-800">
+          <div className="max-w-7xl mx-auto px-4 py-6 text-center text-xs text-slate-500">
+            © {new Date().getFullYear()} {siteConfig.legalName} | IČO: {siteConfig.ico} | Tlačiareň {siteConfig.address.city}
           </div>
         </div>
       </footer>

@@ -55,8 +55,9 @@ export default function ServicePageLayout({
       </div>
 
       {/* Hero */}
-      <section className="relative bg-slate-900 pt-16 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#005088]/80 to-slate-900/95" />
+      <section className="relative bg-slate-900 pt-28 pb-20 overflow-hidden">
+        <img src="/images/services/subpage-hero.jpg" alt="" className="absolute inset-0 w-full h-full object-cover object-bottom" />
+        <div className="absolute inset-0 bg-slate-900/70" />
         {images[0] && (
           <img
             src={images[0].src}

@@ -34,7 +34,7 @@ export default function Header() {
           : 'bg-white dark:bg-[#0f1129] shadow-md dark:shadow-slate-900/50 py-4'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between relative">
         <Link to="/" className="flex items-center group">
           <img
             src={siteConfig.logo}
@@ -43,21 +43,25 @@ export default function Header() {
           />
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        {/* Desktop nav — centered */}
+        <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2 text-[11px] font-bold uppercase tracking-[0.2em]">
           {navLinks.map((l) => (
             <Link
               key={l.to}
               to={l.to}
-              className={`text-sm font-bold uppercase tracking-wider transition-colors ${
+              className={`px-3 py-1.5 rounded-lg transition-all duration-300 ${
                 location.pathname === l.to
-                  ? `text-[${siteConfig.colors.accent}]`
-                  : `text-slate-700 dark:text-slate-300 hover:text-[${siteConfig.colors.primary}] dark:hover:text-[${siteConfig.colors.accent}]`
+                  ? 'text-[#f97316] border border-[#f97316]'
+                  : 'text-slate-500 dark:text-slate-400 border border-transparent hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-[#f97316]'
               }`}
             >
               {l.label}
             </Link>
           ))}
+        </nav>
+
+        {/* Right side — theme + CTA */}
+        <div className="hidden md:flex items-center gap-4">
           <button
             onClick={toggleTheme}
             className="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300"
@@ -67,11 +71,11 @@ export default function Header() {
           </button>
           <Link
             to="/kontakt"
-            className={`bg-gradient-to-r from-[${siteConfig.colors.accent}] to-[${siteConfig.colors.accentEnd}] hover:shadow-xl hover:shadow-orange-500/25 hover:scale-105 text-white px-6 py-2.5 rounded-xl text-sm font-bold uppercase tracking-wider transition-all duration-300`}
+            className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] hover:shadow-xl hover:shadow-orange-500/25 hover:scale-105 text-white px-6 py-2.5 rounded-xl text-sm font-bold uppercase tracking-wider transition-all duration-300"
           >
             {siteConfig.cta.primary}
           </Link>
-        </nav>
+        </div>
 
         {/* Mobile toggle */}
         <div className="md:hidden flex items-center gap-3">
@@ -100,7 +104,7 @@ export default function Header() {
                 key={l.to}
                 to={l.to}
                 className={`text-base font-bold uppercase tracking-wider py-2 ${
-                  location.pathname === l.to ? `text-[${siteConfig.colors.accent}]` : 'text-slate-700 dark:text-slate-300'
+                  location.pathname === l.to ? 'text-[#f97316]' : 'text-slate-700 dark:text-slate-300'
                 }`}
               >
                 {l.label}
@@ -108,7 +112,7 @@ export default function Header() {
             ))}
             <Link
               to="/kontakt"
-              className={`bg-gradient-to-r from-[${siteConfig.colors.accent}] to-[${siteConfig.colors.accentEnd}] text-white text-center px-5 py-3 rounded-xl font-bold uppercase tracking-wider mt-2`}
+              className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white text-center px-5 py-3 rounded-xl font-bold uppercase tracking-wider mt-2"
             >
               {siteConfig.cta.primary}
             </Link>

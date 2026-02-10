@@ -14,8 +14,9 @@ export default function PortfolioPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-slate-900 pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-slate-900/95" />
+      <section className="relative bg-slate-900 pt-40 pb-20 overflow-hidden">
+        <img src="/images/services/portfolio-hero.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-slate-900/60" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">
             {siteConfig.pages.portfolio.title}
@@ -35,10 +36,10 @@ export default function PortfolioPage() {
               <button
                 key={f}
                 onClick={() => setActive(f)}
-                className={`px-4 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider transition-colors ${
+                className={`px-5 py-2.5 rounded-lg text-sm font-bold uppercase tracking-wider transition-all duration-300 border ${
                   active === f
-                    ? 'bg-primary text-white'
-                    : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
+                    ? 'text-[#f97316] border-[#f97316] bg-white dark:bg-slate-800'
+                    : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-transparent hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:border-[#f97316]'
                 }`}
               >
                 {f}

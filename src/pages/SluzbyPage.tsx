@@ -22,8 +22,9 @@ export default function SluzbyPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-slate-900 pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-slate-900/95" />
+      <section className="relative bg-slate-900 pt-40 pb-20 overflow-hidden">
+        <img src="/images/services/subpage-hero.jpg" alt="" className="absolute inset-0 w-full h-full object-cover object-bottom" />
+        <div className="absolute inset-0 bg-slate-900/70" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">
             {siteConfig.pages.sluzby.title}
