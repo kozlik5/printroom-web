@@ -471,24 +471,24 @@ export default function HomePage() {
                 <p className="text-blue-100 text-lg font-light mb-16 max-w-sm italic">
                   Povedzte nám o svojom projekte a my vám navrhneme najlepšiu cestu k realizácii.
                 </p>
-                <div className="space-y-6">
-                  <a href="mailto:print@printroom.sk" className="flex items-center gap-6 group cursor-pointer">
-                    <div className="w-12 h-12 bg-white/10 backdrop-blur-sm flex items-center justify-center text-[#f97316] group-hover:bg-gradient-to-r group-hover:from-[#f97316] group-hover:to-[#f59e0b] group-hover:text-white transition-all rounded-xl">
-                      <Mail size={20} />
+                <div className="space-y-4 md:space-y-6">
+                  <a href="mailto:print@printroom.sk" className="flex items-center gap-4 md:gap-6 group cursor-pointer">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm flex items-center justify-center text-[#f97316] group-hover:bg-gradient-to-r group-hover:from-[#f97316] group-hover:to-[#f59e0b] group-hover:text-white transition-all rounded-xl flex-shrink-0">
+                      <Mail size={18} />
                     </div>
-                    <span className="font-bold tracking-widest uppercase text-xs">print@printroom.sk</span>
+                    <span className="font-bold tracking-wider md:tracking-widest text-sm md:text-xs md:uppercase">print@printroom.sk</span>
                   </a>
-                  <a href="tel:+421903584020" className="flex items-center gap-6 group cursor-pointer">
-                    <div className="w-12 h-12 bg-white/10 backdrop-blur-sm flex items-center justify-center text-[#f97316] group-hover:bg-gradient-to-r group-hover:from-[#f97316] group-hover:to-[#f59e0b] group-hover:text-white transition-all rounded-xl">
-                      <Phone size={20} />
+                  <a href="tel:+421903584020" className="flex items-center gap-4 md:gap-6 group cursor-pointer">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm flex items-center justify-center text-[#f97316] group-hover:bg-gradient-to-r group-hover:from-[#f97316] group-hover:to-[#f59e0b] group-hover:text-white transition-all rounded-xl flex-shrink-0">
+                      <Phone size={18} />
                     </div>
-                    <span className="font-bold tracking-widest uppercase text-xs">+421 903 584 020</span>
+                    <span className="font-bold tracking-wider md:tracking-widest text-sm md:text-xs md:uppercase">+421 903 584 020</span>
                   </a>
-                  <a href="https://maps.google.com/?q=Fialová+5/A,+851+07+Bratislava-Petržalka" target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group cursor-pointer">
-                    <div className="w-12 h-12 bg-white/10 backdrop-blur-sm flex items-center justify-center text-[#f97316] group-hover:bg-gradient-to-r group-hover:from-[#f97316] group-hover:to-[#f59e0b] group-hover:text-white transition-all rounded-xl">
-                      <MapPin size={20} />
+                  <a href="https://maps.google.com/?q=Fialová+5/A,+851+07+Bratislava-Petržalka" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 md:gap-6 group cursor-pointer">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm flex items-center justify-center text-[#f97316] group-hover:bg-gradient-to-r group-hover:from-[#f97316] group-hover:to-[#f59e0b] group-hover:text-white transition-all rounded-xl flex-shrink-0">
+                      <MapPin size={18} />
                     </div>
-                    <span className="font-bold tracking-widest uppercase text-xs text-blue-200">Fialová 5/A, Bratislava — Petržalka</span>
+                    <span className="font-bold tracking-wider md:tracking-widest text-sm md:text-xs md:uppercase text-blue-200">Fialová 5/A, Bratislava — Petržalka</span>
                   </a>
                 </div>
               </div>
