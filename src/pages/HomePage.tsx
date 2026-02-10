@@ -446,11 +446,11 @@ export default function HomePage() {
               </p>
               <div className="grid grid-cols-2 gap-6">
                 <div className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl border-l-4 border-l-[#005088]">
-                  <div className="text-3xl font-black tracking-tighter italic bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">24/48h</div>
+                  <div className="text-2xl md:text-3xl font-black tracking-tighter italic bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">24/48h</div>
                   <div className="text-[8px] font-bold uppercase tracking-widest text-slate-500 mt-2">Expres doručenie</div>
                 </div>
                 <div className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl border-l-4 border-l-[#f97316]">
-                  <div className="text-3xl font-black tracking-tighter italic bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">100%</div>
+                  <div className="text-2xl md:text-3xl font-black tracking-tighter italic bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">100%</div>
                   <div className="text-[8px] font-bold uppercase tracking-widest text-slate-500 mt-2">Kvalita materiálu</div>
                 </div>
               </div>
